@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-has-content, jsx-a11y/anchor-is-valid*/
 
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import { StaticQuery, graphql } from "gatsby";
@@ -9,7 +9,7 @@ import { HelmetDatoCms } from "gatsby-source-datocms";
 import "./layout.css";
 
 const TemplateWrapper = ({ children }) => {
-  const [showMenu, setShowMenu] = useState(false);
+
   return (
     <StaticQuery
       query={graphql`
@@ -47,6 +47,7 @@ const TemplateWrapper = ({ children }) => {
           allDatoCmsSocialProfile(sort: { fields: [position], order: ASC }) {
             edges {
               node {
+                id
                 profileType
                 url
               }
@@ -55,7 +56,7 @@ const TemplateWrapper = ({ children }) => {
         }
       `}
       render={(data) => (
-        <div className={`mx-auto ${showMenu ? "is-open" : ""}`}>
+        <div className="mx-auto">
           <HelmetDatoCms
             favicon={data.datoCmsSite.faviconMetaTags}
             seo={data.datoCmsHome.seoMetaTags}
@@ -64,7 +65,7 @@ const TemplateWrapper = ({ children }) => {
             <div className="flex justify-between">
               <div className="w-24 md-up:w-32">
                 <Link to="/">
-                  <img src="https://www.datocms-assets.com/27016/1588368481-artboard-3.png" />
+                  <img alt="SER+" src="https://www.datocms-assets.com/27016/1588368481-artboard-3.png" />
                 </Link>
               </div>
               <ul className="flex">
@@ -81,23 +82,6 @@ const TemplateWrapper = ({ children }) => {
             </div>
           </nav>
           {children}
-          <div>
-            <p className="sidebar__social">
-              {data.allDatoCmsSocialProfile.edges.map(({ node: profile }) => (
-                <a
-                  key={profile.profileType}
-                  href={profile.url}
-                  target="blank"
-                  className={`social social--${profile.profileType.toLowerCase()}`}
-                >
-                  {" "}
-                </a>
-              ))}
-            </p>
-            <div className="sidebar__copyright">
-              {data.datoCmsHome.copyright}
-            </div>
-          </div>
         </div>
       )}
     />
@@ -105,7 +89,7 @@ const TemplateWrapper = ({ children }) => {
 };
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.array,
 };
 
 export default TemplateWrapper;

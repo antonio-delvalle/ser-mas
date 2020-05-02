@@ -76,3 +76,12 @@
 .tracking-sermas {
   letter-spacing: 0.3em;
 }
+
+.slick-dots li button:before {
+  font-size: 1rem !important;
+  color: #109BAD !important;
+}
+
+.slick-dots {
+  margin-top: 4rem !important;
+}
