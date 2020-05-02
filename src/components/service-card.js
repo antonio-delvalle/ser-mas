@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import Img from "gatsby-image";
 
-const ServiceCard = ({ data: { id, image, title, text } }) => {
+const ServiceCard = ({ image, title, text }) => {
   return (
-    <div className="mx-auto shadow-2xl rounded-lg" key={id}>
+    <div className="mx-auto shadow-2xl rounded-lg mb-8 md:mb-0">
       <div>
-        <div className="h-64">
-          <Img className="h-64 rounded-t-lg" fluid={image.fluid} />
+        <div className="h-32 md:h-64">
+          <Img className="h-32 md:h-64 rounded-t-lg" fluid={image.fluid} />
         </div>
         <div className="flex relative p-8">
           <div className="">

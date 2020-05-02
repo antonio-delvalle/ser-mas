@@ -1,7 +1,5 @@
 import React from "react";
-import Slider from "react-slick";
 import { HelmetDatoCms } from "gatsby-source-datocms";
-import Img from "gatsby-image";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
 
@@ -35,7 +33,9 @@ export const query = graphql`
       heroSubtitle
       content {
         ... on DatoCmsBio {
-          model { apiKey }
+          model {
+            apiKey
+          }
           id
           title
           text
@@ -48,5 +48,5 @@ export const query = graphql`
         }
       }
     }
-  } 
+  }
 `;
