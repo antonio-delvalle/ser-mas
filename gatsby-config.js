@@ -6,7 +6,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sass`,
+    `gatsby-plugin-postcss`,
     `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-datocms`,
@@ -14,5 +14,16 @@ module.exports = {
         apiToken: process.env.DATO_API_TOKEN,
       },
     },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `DM Sans`,
+            variants: [`400`, `700`]
+          },
+        ],
+      },
+    }
   ],
 }
