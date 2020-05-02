@@ -6,7 +6,7 @@ import { Link } from "gatsby";
 import { StaticQuery, graphql } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
 
-import "../styles/index.sass";
+import "./layout.css";
 
 const TemplateWrapper = ({ children }) => {
   const [showMenu, setShowMenu] = useState(false);
@@ -17,6 +17,17 @@ const TemplateWrapper = ({ children }) => {
           datoCmsSite {
             globalSeo {
               siteName
+              fallbackSeo {
+                image {
+                  url
+                  fluid(
+                    maxWidth: 600
+                    imgixParams: { fm: "jpg", auto: "compress" }
+                  ) {
+                    ...GatsbyDatoCmsSizes
+                  }
+                }
+              }
             }
             faviconMetaTags {
               ...GatsbyDatoCmsFaviconMetaTags
@@ -43,66 +54,49 @@ const TemplateWrapper = ({ children }) => {
           }
         }
       `}
-      render={data => (
-        <div className={`container ${showMenu ? "is-open" : ""}`}>
+      render={(data) => (
+        <div className={`mx-auto ${showMenu ? "is-open" : ""}`}>
           <HelmetDatoCms
             favicon={data.datoCmsSite.faviconMetaTags}
             seo={data.datoCmsHome.seoMetaTags}
           />
-          <div className="container__sidebar">
-            <div className="sidebar">
-              <h6 className="sidebar__title">
-                <Link to="/">{data.datoCmsSite.globalSeo.siteName}</Link>
-              </h6>
-              <div
-                className="sidebar__intro"
-                dangerouslySetInnerHTML={{
-                  __html:
-                    data.datoCmsHome.introTextNode.childMarkdownRemark.html
-                }}
-              />
-              <ul className="sidebar__menu">
+          <nav className="md:w-4/5 md:my-8 mx-auto">
+            <div className="flex justify-between">
+              <div className="w-24 md-up:w-32">
+                <Link to="/">
+                  <img src="https://www.datocms-assets.com/27016/1588368481-artboard-3.png" />
+                </Link>
+              </div>
+              <ul className="flex">
                 <li>
-                  <Link to="/">Home</Link>
+                  <Link to="/servicios">Servicios</Link>
                 </li>
-                <li>
-                  <Link to="/about">About</Link>
+                <li className="ml-8">
+                  <Link to="/nosotros">Nosotros</Link>
+                </li>
+                <li className="ml-8">
+                  <Link to="/contacto">Contacto</Link>
                 </li>
               </ul>
-              <p className="sidebar__social">
-                {data.allDatoCmsSocialProfile.edges.map(({ node: profile }) => (
-                  <a
-                    key={profile.profileType}
-                    href={profile.url}
-                    target="blank"
-                    className={`social social--${profile.profileType.toLowerCase()}`}
-                  >
-                    {" "}
-                  </a>
-                ))}
-              </p>
-              <div className="sidebar__copyright">
-                {data.datoCmsHome.copyright}
-              </div>
             </div>
-          </div>
-          <div className="container__body">
-            <div className="container__mobile-header">
-              <div className="mobile-header">
-                <div className="mobile-header__menu">
-                  <button
-                    onClick={e => {
-                      e.preventDefault();
-                      setShowMenu(!showMenu);
-                    }}
-                  />
-                </div>
-                <div className="mobile-header__logo">
-                  <Link to="/">{data.datoCmsSite.globalSeo.siteName}</Link>
-                </div>
-              </div>
+          </nav>
+          {children}
+          <div>
+            <p className="sidebar__social">
+              {data.allDatoCmsSocialProfile.edges.map(({ node: profile }) => (
+                <a
+                  key={profile.profileType}
+                  href={profile.url}
+                  target="blank"
+                  className={`social social--${profile.profileType.toLowerCase()}`}
+                >
+                  {" "}
+                </a>
+              ))}
+            </p>
+            <div className="sidebar__copyright">
+              {data.datoCmsHome.copyright}
             </div>
-            {children}
           </div>
         </div>
       )}
@@ -111,7 +105,7 @@ const TemplateWrapper = ({ children }) => {
 };
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.object
+  children: PropTypes.object,
 };
 
 export default TemplateWrapper;
