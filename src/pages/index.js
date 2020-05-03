@@ -17,6 +17,15 @@ const IndexPage = ({ data: { datoCmsHome, datoCmsNewsletter } }) => {
     arrow: false,
     responsive: [
       {
+        breakpoint: 1440,
+        settings: {
+          slidesToShow: 1,
+          className: "center",
+          centerMode: true,
+          centerPadding: "100px",
+        },
+      },
+      {
         breakpoint: 1280,
         settings: {
           slidesToShow: 1,
@@ -80,6 +89,12 @@ const IndexPage = ({ data: { datoCmsHome, datoCmsNewsletter } }) => {
       </div>
 
       <section className="bg-sermas-green-100 py-24 px-8 md:px-0">
+        <div className="text-center mb-16">
+          <h2 className="text-2xl font-bold mb-4">
+            Sesiones en línea grupales e individuales
+          </h2>
+          <p>Webinars gratuitos y sesiones individuales remotas</p>
+        </div>
         <div className="mx-auto md:mb-0 md:w-4/5 container">
           <Newsletter {...datoCmsNewsletter} />
         </div>
