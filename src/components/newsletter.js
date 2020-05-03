@@ -11,15 +11,16 @@ const Newsletter = ({
       <div className="md:flex">
         <div className="md:w-1/2 pb-8 md:pb-0">
           <div className="md:w-5/6">
-            <h6 className="text-2xl font-bold leading-tight mb-4">
+            <h6 className="text-lg font-bold leading-tight mb-4">
               {newsletterTitle}
             </h6>
             <p>{newsletterText}</p>
           </div>
         </div>
+        <div className="w-0 md:w-px bg-gray-500 mx-4">&nbsp;</div>
         <div className="md:w-1/2">
-          <div className="md:w-5/6">
-            <h6 className="text-2xl font-bold leading-tight mb-4">
+          <div className="md:pl-8">
+            <h6 className="text-lg font-bold leading-tight mb-4">
               {remoteTitle}
             </h6>
             <p>{remoteText}</p>
