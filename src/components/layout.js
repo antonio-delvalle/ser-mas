@@ -5,8 +5,11 @@ import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import { StaticQuery, graphql } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
-
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons'
 import "./layout.css";
+
+library.add(faChevronCircleRight);
 
 const TemplateWrapper = ({ children }) => {
 

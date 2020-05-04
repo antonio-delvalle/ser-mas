@@ -32,5 +32,11 @@ module.exports = {
         showSpinner: false,
       },
     },
+    {
+      resolve: `gatsby-plugin-mailchimp`,
+      options: {
+        endpoint: `https://ser-mas.us8.list-manage.com/subscribe/post?u=63c038a54395cb8a9c5bc1a2c&amp;id=d234798c25`,
+      },
+    },
   ],
 }
