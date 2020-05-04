@@ -1,5 +1,6 @@
 import React from "react";
 import Img from "gatsby-image";
+import InlineCta from "./inline-cta";
 
 const ServicePresentation = ({
   title,
@@ -21,8 +22,8 @@ const ServicePresentation = ({
             <div className="ml-8 w-2/3">
               <h5 className="tracking-sermas mb-4">{pretitle}</h5>
               <h6 className="text-2xl font-bold leading-tight mb-4">{title}</h6>
-              <p className="mb-4">{text}</p>
-              <a href={`/servicios/${serviceLink.slug}`}>{ctaText}</a>
+              <p className="mb-8">{text}</p>
+              <InlineCta url={`/servicio/${serviceLink.slug}`} text={ctaText} />
             </div>
           </div>
         </div>
@@ -38,8 +39,8 @@ const ServicePresentation = ({
             <div className="md:w-2/3">
               <h5 className="tracking-sermas mb-4">{pretitle}</h5>
               <h6 className="text-2xl font-bold leading-tight mb-4">{title}</h6>
-              <p className="mb-4">{text}</p>
-              <a href={`/servicios/${serviceLink.slug}`}>{ctaText}</a>
+              <p className="mb-8">{text}</p>
+              <InlineCta url={`/servicio/${serviceLink.slug}`} text={ctaText} />
             </div>
           </div>
           <div className="md:w-1/2">
@@ -57,8 +58,8 @@ const ServicePresentation = ({
           <div className="md:w-2/3">
             <h5 className="tracking-sermas mb-4">{pretitle}</h5>
             <h6 className="text-2xl font-bold leading-tight mb-4">{title}</h6>
-            <p className="mb-4">{text}</p>
-            <a href={`/servicios/${serviceLink.slug}`}>{ctaText}</a>
+            <p className="mb-8">{text}</p>
+            <InlineCta url={`/servicio/${serviceLink.slug}`} text={ctaText} />
           </div>
         </div>
         <div className="md:w-1/2">

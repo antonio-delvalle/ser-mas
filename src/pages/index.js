@@ -7,6 +7,8 @@ import ServicePresentation from "../components/service-presentation";
 import ServiceCard from "../components/service-card";
 import TestimonialCard from "../components/testimonial-card";
 import Newsletter from "../components/newsletter";
+import InlineCta from "../components/inline-cta";
+import EmailListForm from "../components/email-list-form";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -72,14 +74,14 @@ const IndexPage = ({ data: { datoCmsHome, datoCmsNewsletter } }) => {
               {datoCmsHome.heroTitle}
             </h1>
             <div>
-              <p>{datoCmsHome.heroSubtitle}</p>
+              <p className="mb-8">{datoCmsHome.heroSubtitle}</p>
+              <EmailListForm />
               <hr className="h-px bg-gray-300 my-8" />
-              <a
-                className="font-bold mt-2 block"
-                href={datoCmsHome.heroCtaLink}
-              >
-                {datoCmsHome.heroCtaText}
-              </a>
+
+              <InlineCta
+                url={datoCmsHome.heroCtaLink}
+                text={datoCmsHome.heroCtaText}
+              />
             </div>
           </div>
         </div>
