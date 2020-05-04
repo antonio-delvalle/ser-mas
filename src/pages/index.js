@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Slick from "react-slick";
+import Slider from "react-slick";
 import Img from "gatsby-image";
 import Layout from "../components/layout";
 import ServicePresentation from "../components/service-presentation";
@@ -14,63 +14,49 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const IndexPage = ({ data: { datoCmsHome, datoCmsNewsletter } }) => {
-  var settings = {
-    dots: true,
-    arrow: false,
+  const sliderSettings = {
+    dots: false,
+    arrows: true,
+    slidesToShow: 3,
+    initialSlide: 0,
     responsive: [
-      {
-        breakpoint: 1440,
-        settings: {
-          slidesToShow: 1,
-          className: "center",
-          centerMode: true,
-          centerPadding: "100px",
-        },
-      },
-      {
-        breakpoint: 1280,
-        settings: {
-          slidesToShow: 1,
-          className: "center",
-          centerMode: true,
-          centerPadding: "600px",
-        },
-      },
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 1,
-          className: "center",
-          centerMode: true,
-          centerPadding: "200px",
+          slidesToScroll: 1,
+          infinite: true,
+          dots: false,
+          arrows: true,
         },
       },
       {
-        breakpoint: 768,
+        breakpoint: 600,
         settings: {
           slidesToShow: 1,
-          className: "center",
-          centerMode: true,
-          centerPadding: "100px",
+          slidesToScroll: 1,
+          initialSlide: 0,
+          dots: false,
+          arrows: true,
         },
       },
       {
-        breakpoint: 640,
+        breakpoint: 480,
         settings: {
           slidesToShow: 1,
-          className: "center",
-          centerMode: false,
-          centerPadding: "60px",
+          slidesToScroll: 1,
+          dots: true,
+          arrows: false
         },
       },
     ],
   };
   return (
     <Layout>
-      <div className="flex pb-16">
-        <div className="md:pt-32 md:pb-24 md:w-2/5">
-          <div className="pl-16">
-            <h1 className="text-3xl md:text-6xl leading-tight mb-4 md:home-hero">
+      <div className="flex mx-8 sm:mx-0 pb-16 mt-16 sm:mt-0">
+        <div className="sm:pt-32 sm:pb-24 sm:w-2/5">
+          <div className="sm:pl-16">
+            <h1 className="text-2xl md:text-6xl leading-tight mb-4 sm:home-hero">
               {datoCmsHome.heroTitle}
             </h1>
             <div>
@@ -85,7 +71,7 @@ const IndexPage = ({ data: { datoCmsHome, datoCmsNewsletter } }) => {
             </div>
           </div>
         </div>
-        <div className="hidden md:block md:top-0 md:right-0 md:w-3/5 z-neg">
+        <div className="hidden sm:block md:top-0 sm:right-0 sm:w-3/5 z-neg">
           <Img fluid={datoCmsHome.heroImage.fluid} />
         </div>
       </div>
@@ -108,7 +94,7 @@ const IndexPage = ({ data: { datoCmsHome, datoCmsNewsletter } }) => {
         ))}
       </section>
 
-      <section className="container mx-auto md:w-3/4 mb-16 px-8 md:px-0">
+      <section className="container mx-auto md:w-3/4 mb-16 px-4 md:px-0">
         <h6 className="text-2xl font-bold leading-tight mb-16 text-center">
           Mas servicios
         </h6>
@@ -119,16 +105,18 @@ const IndexPage = ({ data: { datoCmsHome, datoCmsNewsletter } }) => {
         </div>
       </section>
 
-      <section className="mx-auto bg-sermas-green-200 mb-16">
-        <Slick {...settings}>
-          {datoCmsHome.testimonials.map((testimonial) => (
-            <TestimonialCard key={testimonial.id} {...testimonial} />
-          ))}
-        </Slick>
+      <section className="bg-sermas-green-200 mb-16">
+        <div className="md:w-4/5 mx-auto">
+          <Slider {...sliderSettings}>
+            {datoCmsHome.testimonials.map((testimonial) => (
+              <TestimonialCard key={testimonial.id} {...testimonial} />
+            ))}
+          </Slider>
+        </div>
       </section>
 
-      <section className="container mx-auto md:w-4/5 mb-16 px-8 md:px-0">
-        <div className="shadow-2xl rounded-lg mb-8 md:mb-0 p-12 ">
+      <section className="container mx-auto md:w-4/5 mb-16 px-4 md:px-8 md:px-0">
+        <div className="shadow-2xl rounded-lg mb-8 md:mb-0 p-8 md:p-12 ">
           <Newsletter {...datoCmsNewsletter} />
         </div>
       </section>

@@ -61,9 +61,9 @@
   * @import "utilities/skew-transforms";
   */
 
-  html {
-    background-color: #FAFAFA;
-  }
+html {
+  background-color: #fafafa;
+}
 
 .z-neg {
   z-index: -1;
@@ -79,9 +79,9 @@
 
 .slick-dots li button:before {
   font-size: 1rem !important;
-  color: #109BAD !important;
+  color: #109bad !important;
 }
-
+/*
 .slick-dots {
   margin-top: 4rem !important;
-}
+} */

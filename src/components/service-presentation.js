@@ -35,7 +35,7 @@ const ServicePresentation = ({
     return (
       <div>
         <div className="md:flex mx-auto">
-          <div className="py-24 md:w-1/2 md:flex relative">
+          <div className="py-24 md:w-1/2 md:flex relative justify-end">
             <div className="md:w-2/3">
               <h5 className="tracking-sermas mb-4">{pretitle}</h5>
               <h6 className="text-2xl font-bold leading-tight mb-4">{title}</h6>
@@ -54,7 +54,7 @@ const ServicePresentation = ({
   return (
     <div className="py-24">
       <div className="md:flex mx-auto">
-        <div className="md:w-1/2 flex relative">
+        <div className="md:w-1/2 flex relative justify-end">
           <div className="md:w-2/3">
             <h5 className="tracking-sermas mb-4">{pretitle}</h5>
             <h6 className="text-2xl font-bold leading-tight mb-4">{title}</h6>
