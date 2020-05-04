@@ -12,7 +12,7 @@ const Newsletter = ({
     <div>
       <div className="md:flex">
         <div className="md:w-1/2 pb-8 md:pb-0">
-          <div className="md:w-5/6">
+          <div className="md:w-6/7">
             <h6 className="text-lg font-bold leading-tight mb-4">
               {newsletterTitle}
             </h6>
