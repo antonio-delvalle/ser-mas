@@ -7,7 +7,7 @@ const MainHeader = ({ ctaLink, ctaText, image, title, subtitle, pretitle }) => {
   const displayPretitle = (pretitle) => <p>{pretitle}</p>;
 
   const displayTitle = (title) => (
-    <h1 className="text-2xl md:text-6xl leading-tight mb-4 sm:home-hero">
+    <h1 className="text-3xl font-bold md:text-6xl md:font-normal leading-tight mb-4 sm:home-hero">
       {title}
     </h1>
   );

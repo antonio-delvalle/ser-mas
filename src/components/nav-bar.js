@@ -1,52 +1,83 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "gatsby";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Navbar = ({ siteTitle }) => {
-  const [isExpanded, toggleExpansion] = useState(false);
+const Navbar = ({ toggleDrawer }) => {
+  const onMenuHandler = (elementId) => {
+    document.getElementById(elementId).classList.toggle("lg:block");
+    document.getElementById(elementId).classList.toggle("lg:hidden");
+  };
 
   return (
-    <nav className="flex items-center justify-between flex-wrap p-6">
-      <div className="flex items-center flex-shrink-0 text-white mr-6">
-        <div className="w-24 md-up:w-32">
-          <Link to="/">
-            <img
-              alt="SER+"
-              src="https://www.datocms-assets.com/27016/1588368481-artboard-3.png"
-            />
-          </Link>
-        </div>
-      </div>
-      <div className="block lg:hidden">
-        <button
-          onClick={() => toggleExpansion(!isExpanded)}
-          className="flex items-center px-3 py-2 text-3xl text-sermas-green-300"
-        >
-          <FontAwesomeIcon icon="bars" />
-        </button>
-      </div>
-      <div
-        className={`${
-          isExpanded ? `block` : `hidden`
-        } w-full block lg:flex lg:items-center lg:w-auto`}
+    <header id="header">
+      <nav
+        className="flex items-center justify-between p-6 navigation"
+        role="navigation"
       >
-        <div className="flex">
-          <div>
-            <Link className="font-bold" to="/servicios">
-              Servicios
-            </Link>
-          </div>
-          <div className="ml-8 font-bold">
-            <Link to="/nosotros">Nosotros</Link>
-          </div>
-          <div className="ml-8 font-bold">
-            <Link className="font-bold" to="/contacto">
-              Contacto
+        <div className="flex items-center flex-shrink-0 text-white mr-6">
+          <div className="w-24 md-up:w-32">
+            <Link to="/">
+              <img
+                alt="SER+"
+                src="https://www.datocms-assets.com/27016/1588368481-artboard-3.png"
+              />
             </Link>
           </div>
         </div>
-      </div>
-    </nav>
+        <div className="block lg:hidden">
+          <button
+            onClick={() => toggleDrawer()}
+            className="flex items-center px-3 py-2 text-3xl text-sermas-green-300"
+          >
+            <FontAwesomeIcon icon="bars" />
+          </button>
+        </div>
+
+        <div className="main-navigation lg:justify-end lg:flex">
+          <ul className="flex flex-col lg:flex-row">
+            <li
+              onMouseEnter={() => onMenuHandler("servicios-submenu")}
+              onMouseLeave={() => onMenuHandler("servicios-submenu")}
+              className="border-t lg:border-0"
+            >
+              <div className="font-bold p-4 block flex justify-between cursor-pointer items-center">
+                <p>Servicios</p>
+              </div>
+              <ul
+                id="servicios-submenu"
+                className="ml-8 lg:ml-0 lg:hidden lg:absolute lg:bg-sermas-gray-100 lg:py-4 lg:rounded-lg lg:shadow-2xl lg:border"
+              >
+                <li className="border-t lg:border-0 lg:hover:bg-sermas-green-200">
+                  <Link className="p-4 block" to="/fisioterapia">
+                    Fisioterapia
+                  </Link>
+                </li>
+                <li className="border-t lg:border-0 lg:hover:bg-sermas-green-200">
+                  <Link className="p-4 block" to="/fisioterapia">
+                    Neurofeedback
+                  </Link>
+                </li>
+                <li className="border-t lg:border-0 lg:hover:bg-sermas-green-200">
+                  <Link className="p-4 block" to="/fisioterapia">
+                    Constelaciones vinculares
+                  </Link>
+                </li>
+              </ul>
+            </li>
+            <li className="p-4 border-t border-b lg:border-0">
+              <Link className="font-bold" to="/nosotros">
+                Nosotros
+              </Link>
+            </li>
+            <li className="p-4 border-b lg:border-0">
+              <Link className="font-bold" to="/contacto">
+                Contacto
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
   );
 };
 

@@ -1,18 +1,30 @@
 /* eslint-disable jsx-a11y/anchor-has-content, jsx-a11y/anchor-is-valid*/
 
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import { StaticQuery, graphql } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faChevronCircleRight, faBars } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronCircleRight,
+  faBars,
+  faChevronUp,
+  faChevronDown
+} from "@fortawesome/free-solid-svg-icons";
 import Navbar from "./nav-bar";
 import "./layout.css";
 
-library.add(faChevronCircleRight, faBars);
+library.add(faChevronCircleRight, faBars, faChevronUp, faChevronDown);
 
 const TemplateWrapper = ({ children }) => {
+  const [isExpanded, toggleDrawer] = useState(false);
+
+  const makeToggleDrawer = () => {
+    toggleDrawer(!isExpanded);
+    document.documentElement.classList.toggle('navigation-drawer-active');
+  };
+
   return (
     <StaticQuery
       query={graphql`
@@ -66,12 +78,12 @@ const TemplateWrapper = ({ children }) => {
         }
       `}
       render={(data) => (
-        <div className="mx-auto">
+        <div className={`${isExpanded ? `hey` : `ho`} mx-auto`}>
           <HelmetDatoCms
             favicon={data.datoCmsSite.faviconMetaTags}
             seo={data.datoCmsHome.seoMetaTags}
           />
-          <Navbar siteTitle="Test" />
+          <Navbar toggleDrawer={() => makeToggleDrawer()} isExpanded={isExpanded} />
           {children}
           <footer className="bg-sermas-green-300 p-16">
             <div className="md:flex text-white container mx-auto">
