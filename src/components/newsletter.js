@@ -10,9 +10,9 @@ const Newsletter = ({
 }) => {
   return (
     <div>
-      <div className="md:flex">
-        <div className="md:w-1/2 pb-8 md:pb-0">
-          <div className="md:w-6/7">
+      <div className="lg:flex">
+        <div className="lg:w-1/2 pb-8 lg:pb-0">
+          <div className="lg:w-6/7">
             <h6 className="text-lg font-bold leading-tight mb-4">
               {newsletterTitle}
             </h6>
@@ -20,18 +20,18 @@ const Newsletter = ({
             <EmailListForm />
           </div>
         </div>
-        <div className="w-0 md:w-px bg-gray-500 mx-4">&nbsp;</div>
-        <div className="md:w-1/2">
-          <div className="md:pl-8">
-            <h6 className="text-lg font-bold leading-tight mb-4">
-              {remoteTitle}
-            </h6>
-            <p className="mb-8">{remoteText}</p>
-            <InlineCta
-              url="#"
-              text="Haz tu cita para una sesión individual remota"
-            />
-          </div>
+        <div className="w-full lg:w-px h-px lg:h-full my-8 lg:my-0 lg:mr-16 lg:ml-8 bg-gray-500 lg:mx-4">
+          &nbsp;
+        </div>
+        <div className="lg:w-1/2">
+          <h6 className="text-lg font-bold leading-tight mb-4">
+            {remoteTitle}
+          </h6>
+          <p className="mb-8">{remoteText}</p>
+          <InlineCta
+            url="#"
+            text="Haz tu cita para una sesión individual remota"
+          />
         </div>
       </div>
     </div>

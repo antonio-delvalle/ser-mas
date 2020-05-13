@@ -81,6 +81,14 @@ html {
   font-size: 1rem !important;
   color: #109bad !important;
 }
+
+.button-gradient {
+  background: linear-gradient(160deg,#109BAD 43%,#008292 82%)
+}
+
+.button-gradient-hover {
+  background: #008292;
+}
 /*
 .slick-dots {
   margin-top: 4rem !important;

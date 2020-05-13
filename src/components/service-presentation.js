@@ -11,51 +11,29 @@ const ServicePresentation = ({
   image,
   serviceLink,
 }) => {
-  if (imageType === "type_squared") {
-    return (
-      <div className="py-24 bg-sermas-green-100">
-        <div className="container md:flex mx-auto">
-          <div className="md:w-1/2 px-16">
-            <Img className="object-cover" fluid={image.fluid} />
-          </div>
-          <div className="md:w-1/2 flex relative">
-            <div className="ml-8 w-2/3">
-              <h5 className="tracking-sermas mb-4">{pretitle}</h5>
-              <h6 className="text-2xl font-bold leading-tight mb-4">{title}</h6>
-              <p className="mb-8">{text}</p>
-              <InlineCta url={`/servicio/${serviceLink.slug}`} text={ctaText} />
-            </div>
+  const squared = () => (
+    <div className="py-24 bg-sermas-green-100">
+      <div className="container md:flex mx-auto">
+        <div className="md:w-1/2 sm:px-16">
+          <Img className="object-cover" fluid={image.fluid} />
+        </div>
+        <div className="md:w-1/2 flex relative">
+          <div className="mt-16 md:mt-0 ml-8 w-2/3">
+            <h5 className="tracking-sermas mb-4">{pretitle}</h5>
+            <h6 className="text-2xl font-bold leading-tight mb-4">{title}</h6>
+            <p className="mb-8">{text}</p>
+            <InlineCta url={`/servicio/${serviceLink.slug}`} text={ctaText} />
           </div>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 
-  if (imageType === "type_full") {
-    return (
-      <div>
-        <div className="md:flex mx-auto">
-          <div className="py-24 md:w-1/2 md:flex relative justify-end">
-            <div className="md:w-2/3">
-              <h5 className="tracking-sermas mb-4">{pretitle}</h5>
-              <h6 className="text-2xl font-bold leading-tight mb-4">{title}</h6>
-              <p className="mb-8">{text}</p>
-              <InlineCta url={`/servicio/${serviceLink.slug}`} text={ctaText} />
-            </div>
-          </div>
-          <div className="md:w-1/2">
-            <Img className="object-cover" fluid={image.fluid} />
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="py-24">
+  const full = () => (
+    <div>
       <div className="md:flex mx-auto">
-        <div className="md:w-1/2 flex relative justify-end">
-          <div className="md:w-2/3">
+        <div className="p-8 sm:p-0 md:py-24 md:w-1/2 md:flex relative justify-end">
+          <div className="md:w-2/3 md:mr-16">
             <h5 className="tracking-sermas mb-4">{pretitle}</h5>
             <h6 className="text-2xl font-bold leading-tight mb-4">{title}</h6>
             <p className="mb-8">{text}</p>
@@ -68,6 +46,30 @@ const ServicePresentation = ({
       </div>
     </div>
   );
+
+  const regular = () => (
+    <div className="py-24">
+      <div className="md:flex mx-auto">
+        <div className="mt-8 p-8 sm:p-0 md:mt-0 md:w-1/2 flex relative justify-end">
+          <div className="md:w-2/3 md:mr-16">
+            <h5 className="tracking-sermas mb-4">{pretitle}</h5>
+            <h6 className="text-2xl font-bold leading-tight mb-4">{title}</h6>
+            <p className="mb-8">{text}</p>
+            <InlineCta url={`/servicio/${serviceLink.slug}`} text={ctaText} />
+          </div>
+        </div>
+        <div className="md:w-1/2">
+          <Img className="object-cover" fluid={image.fluid} />
+        </div>
+      </div>
+    </div>
+  );
+
+  if (imageType === "type_squared") return squared();
+
+  if (imageType === "type_full") return full();
+
+  return regular();
 };
 
 export default ServicePresentation;
