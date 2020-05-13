@@ -2,17 +2,17 @@
 
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "gatsby";
+
 import { StaticQuery, graphql } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons'
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faChevronCircleRight, faBars } from "@fortawesome/free-solid-svg-icons";
+import Navbar from "./nav-bar";
 import "./layout.css";
 
-library.add(faChevronCircleRight);
+library.add(faChevronCircleRight, faBars);
 
 const TemplateWrapper = ({ children }) => {
-
   return (
     <StaticQuery
       query={graphql`
@@ -47,6 +47,13 @@ const TemplateWrapper = ({ children }) => {
             }
             copyright
           }
+          datoCmsFooter {
+            copyrightNode {
+              childMarkdownRemark {
+                html
+              }
+            }
+          }
           allDatoCmsSocialProfile(sort: { fields: [position], order: ASC }) {
             edges {
               node {
@@ -64,27 +71,21 @@ const TemplateWrapper = ({ children }) => {
             favicon={data.datoCmsSite.faviconMetaTags}
             seo={data.datoCmsHome.seoMetaTags}
           />
-          <nav className="md:w-4/5 md:my-8 mx-auto">
-            <div className="flex justify-between">
-              <div className="w-24 md-up:w-32">
-                <Link to="/">
-                  <img alt="SER+" src="https://www.datocms-assets.com/27016/1588368481-artboard-3.png" />
-                </Link>
-              </div>
-              <ul className="flex">
-                <li>
-                  <Link to="/servicios">Servicios</Link>
-                </li>
-                <li className="ml-8">
-                  <Link to="/nosotros">Nosotros</Link>
-                </li>
-                <li className="ml-8">
-                  <Link to="/contacto">Contacto</Link>
-                </li>
-              </ul>
-            </div>
-          </nav>
+          <Navbar siteTitle="Test" />
           {children}
+          <footer className="bg-sermas-green-300 p-16">
+            <div className="md:flex text-white container mx-auto">
+              <section className="md:w-1/2">
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      data.datoCmsFooter.copyrightNode.childMarkdownRemark.html,
+                  }}
+                />
+              </section>
+              <section className="md:w-1/2">&nbsp;</section>
+            </div>
+          </footer>
         </div>
       )}
     />

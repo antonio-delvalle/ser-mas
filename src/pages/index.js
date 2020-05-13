@@ -1,17 +1,17 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Slider from "react-slick";
-import Img from "gatsby-image";
+
 import Layout from "../components/layout";
 import ServicePresentation from "../components/service-presentation";
 import ServiceCard from "../components/service-card";
 import TestimonialCard from "../components/testimonial-card";
 import Newsletter from "../components/newsletter";
-import InlineCta from "../components/inline-cta";
-import EmailListForm from "../components/email-list-form";
+
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import MainHeader from "../components/main-header";
 
 const IndexPage = ({ data: { datoCmsHome, datoCmsNewsletter } }) => {
   const sliderSettings = {
@@ -45,36 +45,22 @@ const IndexPage = ({ data: { datoCmsHome, datoCmsNewsletter } }) => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          dots: true,
-          arrows: false
+          dots: false,
+          arrows: true,
         },
       },
     ],
   };
   return (
     <Layout>
-      <div className="flex mx-8 sm:mx-0 pb-16 mt-16 sm:mt-0">
-        <div className="sm:pt-32 sm:pb-24 sm:w-2/5">
-          <div className="sm:pl-16">
-            <h1 className="text-2xl md:text-6xl leading-tight mb-4 sm:home-hero">
-              {datoCmsHome.heroTitle}
-            </h1>
-            <div>
-              <p className="mb-8">{datoCmsHome.heroSubtitle}</p>
-              <EmailListForm />
-              <hr className="h-px bg-gray-300 my-8" />
-
-              <InlineCta
-                url={datoCmsHome.heroCtaLink}
-                text={datoCmsHome.heroCtaText}
-              />
-            </div>
-          </div>
-        </div>
-        <div className="hidden sm:block md:top-0 sm:right-0 sm:w-3/5 z-neg">
-          <Img fluid={datoCmsHome.heroImage.fluid} />
-        </div>
-      </div>
+      <MainHeader
+        title={datoCmsHome.heroTitle}
+        subtitle={datoCmsHome.heroSubtitle}
+        ctaLink={datoCmsHome.heroCtaLink}
+        ctaText={datoCmsHome.heroCtaText}
+        image={datoCmsHome.heroImage}
+        pretitle=""
+      />
 
       <section className="bg-sermas-green-100 py-24 px-8 md:px-0">
         <div className="text-center mb-16">
