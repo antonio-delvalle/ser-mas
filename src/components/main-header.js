@@ -7,19 +7,23 @@ const MainHeader = ({ ctaLink, ctaText, image, title, subtitle, pretitle }) => {
   const displayPretitle = (pretitle) => <p>{pretitle}</p>;
 
   const displayTitle = (title) => (
-    <h1 className="text-3xl font-bold md:text-6xl md:font-normal leading-tight mb-4 sm:home-hero">
+    <h1 className="text-center md:text-left font-bold text-4xl lg:text-6xl md:font-normal leading-tight mb-4 home-hero">
       {title}
     </h1>
   );
 
+  const displaySubtitle = subtitle => (
+    <p className="text-center md:text-left mb-8">{subtitle}</p>
+  );
+
   return (
-    <div className="flex mx-8 sm:mx-0 pb-16 mt-16 sm:mt-0">
-      <div className="sm:pt-32 sm:pb-24 sm:w-2/5">
-        <div className="sm:pl-16">
+    <div className="flex mx-8 md:mx-0 pb-16 mt-16 md:mt-0">
+      <div className="w-full md:w-1/2 md:pt-16 lg:pt-32 lg:w-2/5">
+        <div className="md:pl-16">
           {pretitle && displayPretitle(pretitle)}
           {title && displayTitle(title)}
-          <div>
-            <p className="mb-8">{subtitle}</p>
+          <div className="md:mr-4">
+            {subtitle && displaySubtitle(subtitle)}
             <EmailListForm />
             <hr className="h-px bg-gray-300 my-8" />
 
@@ -27,7 +31,7 @@ const MainHeader = ({ ctaLink, ctaText, image, title, subtitle, pretitle }) => {
           </div>
         </div>
       </div>
-      <div className="hidden sm:block md:top-0 sm:right-0 sm:w-3/5 z-neg">
+      <div className="hidden w-1/2 md:block md:top-0 md:right-0 lg:w-3/5 z-neg">
         <Img fluid={image.fluid} />
       </div>
     </div>

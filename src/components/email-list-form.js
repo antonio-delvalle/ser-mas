@@ -31,7 +31,7 @@ const EmailListForm = () => {
           className="w-full focus:outline-none rounded-lg p-2 border-2 border-sermas-green-100"
         />
         <button
-          className="hover:button-gradient-hover button-gradient ml-4 bg-sermas-green-300 py-2 px-4 rounded-lg text-white"
+          className="button-gradient ml-4 bg-sermas-green-300 py-2 px-4 rounded-lg text-white"
           type="submit"
         >
           Suscribirse
