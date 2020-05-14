@@ -48,17 +48,17 @@ const Navbar = ({ toggleDrawer }) => {
                 className="ml-8 lg:ml-0 lg:hidden lg:absolute lg:bg-sermas-gray-100 lg:py-4 lg:rounded-lg lg:shadow-2xl lg:border"
               >
                 <li className="border-t lg:border-0 lg:hover:bg-sermas-green-200">
-                  <Link className="p-4 block" to="/fisioterapia">
+                  <Link className="p-4 block" to="/servicio/fisioterapia">
                     Fisioterapia
                   </Link>
                 </li>
                 <li className="border-t lg:border-0 lg:hover:bg-sermas-green-200">
-                  <Link className="p-4 block" to="/fisioterapia">
+                  <Link className="p-4 block" to="servicio/neurofeedback">
                     Neurofeedback
                   </Link>
                 </li>
                 <li className="border-t lg:border-0 lg:hover:bg-sermas-green-200">
-                  <Link className="p-4 block" to="/fisioterapia">
+                  <Link className="p-4 block" to="/servicio/constelaciones-vinculares">
                     Constelaciones vinculares
                   </Link>
                 </li>

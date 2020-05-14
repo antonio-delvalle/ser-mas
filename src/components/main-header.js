@@ -4,7 +4,7 @@ import InlineCta from "./inline-cta";
 import Img from "gatsby-image";
 
 const MainHeader = ({ ctaLink, ctaText, image, title, subtitle, pretitle }) => {
-  const displayPretitle = (pretitle) => <p>{pretitle}</p>;
+  const displayPretitle = (pretitle) => <p className="tracking-sermas mb-4">{pretitle}</p>;
 
   const displayTitle = (title) => (
     <h1 className="text-center md:text-left font-bold text-4xl lg:text-6xl md:font-normal leading-tight mb-4 home-hero">
