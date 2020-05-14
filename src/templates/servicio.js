@@ -4,11 +4,14 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import MainHeader from "./../components/main-header";
 import Newsletter from "./../components/newsletter";
+import Biography from "./../components/biography";
+import ServiceMainContent from "./../components/service-main-content";
 
 export default ({ data: { datoCmsServicio, datoCmsNewsletter } }) => {
-  console.log(datoCmsServicio.content)
+  console.log(datoCmsServicio.content);
   return (
     <Layout>
+      <HelmetDatoCms seo={datoCmsServicio.seoMetaTags} />
       <MainHeader
         title={datoCmsServicio.heroTitle}
         subtitle={datoCmsServicio.heroSubtitle}
@@ -17,18 +20,22 @@ export default ({ data: { datoCmsServicio, datoCmsNewsletter } }) => {
         image={datoCmsServicio.heroImage}
         pretitle={datoCmsServicio.heroPretitle}
       />
+      <section className="container mx-auto md:w-4/5 mb-16 px-4 md:px-8 md:px-0">
+        <ServiceMainContent
+          text={datoCmsServicio.mainTextNode}
+          image={datoCmsServicio.mainImage}
+        />
+      </section>
 
-      <HelmetDatoCms seo={datoCmsServicio.seoMetaTags} />
-
-      <div>
-        {datoCmsServicio.content.map((block) => (
-          <div key={block.id}>
-            <h3>{block.title}</h3>
-            <div>{block.text}</div>
-            {/* <Img src={block.image} /> */}
-          </div>
-        ))}
-      </div>
+      <section className="bg-sermas-gray-150 py-12 md:py-24 px-8 md:px-0 mb-16">
+        <div className="mx-auto md:mb-0 md:w-4/5 container">
+          <Biography
+            title={datoCmsServicio.bioTitle}
+            image={datoCmsServicio.bioImage}
+            text={datoCmsServicio.bioTextNode}
+          />
+        </div>
+      </section>
 
       <section className="container mx-auto md:w-4/5 mb-16 px-4 md:px-8 md:px-0">
         <div className="shadow-2xl rounded-lg mb-8 md:mb-0 p-8 md:p-12 ">
@@ -51,33 +58,36 @@ export const query = graphql`
           ...GatsbyDatoCmsSizes
         }
       }
-      content {
-        ... on DatoCmsBio {
-          model {
-            apiKey
-          }
-          id
-          title
-          text
-          image {
-            url
-            fluid(maxWidth: 600, imgixParams: { fm: "jpg", auto: "compress" }) {
-              ...GatsbyDatoCmsSizes
-            }
-          }
+      bioText
+      bioTextNode {
+        childMarkdownRemark {
+          html
         }
-        ... on DatoCmsMainContent {
-          model {
-            apiKey
-          }
-          id
-          text
-          image {
-            url
-            fluid(maxWidth: 600, imgixParams: { fm: "jpg", auto: "compress" }) {
-              ...GatsbyDatoCmsSizes
-            }
-          }
+      }
+      bioTitle
+      bioImage {
+        url
+        fluid(maxWidth: 600, imgixParams: { fm: "jpg", auto: "compress" }) {
+          ...GatsbyDatoCmsSizes
+        }
+      }
+      mainImage {
+        url
+        fluid(maxWidth: 600, imgixParams: { fm: "jpg", auto: "compress" }) {
+          ...GatsbyDatoCmsSizes
+        }
+      }
+      mainText
+      mainTextNode {
+        childMarkdownRemark {
+          html
+        }
+      }
+      videoUrl
+      videoPreview {
+        url
+        fluid(maxWidth: 600, imgixParams: { fm: "jpg", auto: "compress" }) {
+          ...GatsbyDatoCmsSizes
         }
       }
     }

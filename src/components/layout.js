@@ -13,7 +13,7 @@ import {
   faChevronDown
 } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "./nav-bar";
-import "./layout.css";
+import "./../styles/layout.css";
 
 library.add(faChevronCircleRight, faBars, faChevronUp, faChevronDown);
 
