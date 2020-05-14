@@ -85,7 +85,7 @@ const TemplateWrapper = ({ children }) => {
           />
           <Navbar toggleDrawer={() => makeToggleDrawer()} isExpanded={isExpanded} />
           {children}
-          <footer className="bg-sermas-green-300 p-16">
+          <footer className="bg-sermas-gray-200 p-16">
             <div className="md:flex text-white container mx-auto">
               <section className="md:w-1/2">
                 <div

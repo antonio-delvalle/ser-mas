@@ -70,7 +70,13 @@ html {
 }
 
 .home-hero {
-  width: 160%;
+  width: auto;
+}
+
+@media (min-width: 1024px) {
+  .home-hero {
+    width: 160%;
+  }
 }
 
 .tracking-sermas {
@@ -86,8 +92,35 @@ html {
   background: linear-gradient(160deg, #109bad 43%, #008292 82%);
 }
 
-.button-gradient-hover {
+.button-gradient:hover {
   background: #008292;
+}
+
+@media (min-width: 1024px) {
+  .button-nav {
+    position: relative;
+  }
+
+  .button-nav:after {
+    content: " ";
+    display: block;
+    height: 2px;
+    -webkit-transition: width 0.2s linear;
+    transition: width 0.2s linear;
+    width: 0;
+    background-color: #109bad;
+  }
+
+  .button-nav:hover {
+    cursor: pointer;
+    -webkit-transition: color 0.1s ease;
+    transition: color 0.1s ease;
+  }
+
+  .button-nav:hover::after {
+    width: 100%;
+    transition: width 0.2s linear;
+  }
 }
 /*
 .slick-dots {
@@ -143,7 +176,7 @@ html {
   width: 100%;
   max-width: 424px;
   max-height: none !important;
-  top: 94px;
+  top: 70px;
   right: 0;
   bottom: 0;
   background-color: #fafafa;
@@ -157,7 +190,6 @@ html {
   transform: translate3d(0, 0, 0);
   transition: transform 150ms cubic-bezier(0, 0, 0.2, 1), visibility 0s;
 }
-
 
 @media (min-width: 1024px) {
   .main-navigation {

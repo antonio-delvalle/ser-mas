@@ -11,10 +11,10 @@ const Navbar = ({ toggleDrawer }) => {
   return (
     <header id="header">
       <nav
-        className="flex items-center justify-between p-6 navigation"
+        className="flex items-center justify-between p-3 lg:p-6 navigation"
         role="navigation"
       >
-        <div className="flex items-center flex-shrink-0 text-white mr-6">
+        <div className="flex items-center flex-shrink-0 text-white mx-6">
           <div className="w-24 md-up:w-32">
             <Link to="/">
               <img
@@ -64,13 +64,13 @@ const Navbar = ({ toggleDrawer }) => {
                 </li>
               </ul>
             </li>
-            <li className="p-4 border-t border-b lg:border-0">
-              <Link className="font-bold" to="/nosotros">
+            <li className="sm:p-4 border-t border-b lg:border-0 button-nav">
+              <Link className="p-4 sm:p-0 font-bold block" to="/nosotros">
                 Nosotros
               </Link>
             </li>
-            <li className="p-4 border-b lg:border-0">
-              <Link className="font-bold" to="/contacto">
+            <li className="sm:p-4 border-b lg:border-0 button-nav">
+              <Link className="p-4 sm:p-0 font-bold block" to="/contacto">
                 Contacto
               </Link>
             </li>
