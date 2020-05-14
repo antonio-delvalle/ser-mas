@@ -6,6 +6,7 @@ import MainHeader from "./../components/main-header";
 import Newsletter from "./../components/newsletter";
 import Biography from "./../components/biography";
 import ServiceMainContent from "./../components/service-main-content";
+import VideoPreview from "./../components/video-preview";
 
 export default ({ data: { datoCmsServicio, datoCmsNewsletter } }) => {
   console.log(datoCmsServicio.content);
@@ -33,6 +34,15 @@ export default ({ data: { datoCmsServicio, datoCmsNewsletter } }) => {
             title={datoCmsServicio.bioTitle}
             image={datoCmsServicio.bioImage}
             text={datoCmsServicio.bioTextNode}
+          />
+        </div>
+      </section>
+
+      <section className="container mx-auto md:w-4/5 mb-16 px-4 md:px-8 md:px-0 ">
+        <div className="p-8 md:p-16">
+          <VideoPreview
+            url={datoCmsServicio.videoUrl}
+            image={datoCmsServicio.videoPreview}
           />
         </div>
       </section>

@@ -10,19 +10,26 @@ import {
   faChevronCircleRight,
   faBars,
   faChevronUp,
-  faChevronDown
+  faChevronDown,
+  faPlayCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "./nav-bar";
 import "./../styles/layout.css";
 
-library.add(faChevronCircleRight, faBars, faChevronUp, faChevronDown);
+library.add(
+  faChevronCircleRight,
+  faBars,
+  faChevronUp,
+  faChevronDown,
+  faPlayCircle
+);
 
 const TemplateWrapper = ({ children }) => {
   const [isExpanded, toggleDrawer] = useState(false);
 
   const makeToggleDrawer = () => {
     toggleDrawer(!isExpanded);
-    document.documentElement.classList.toggle('navigation-drawer-active');
+    document.documentElement.classList.toggle("navigation-drawer-active");
   };
 
   return (
@@ -83,7 +90,10 @@ const TemplateWrapper = ({ children }) => {
             favicon={data.datoCmsSite.faviconMetaTags}
             seo={data.datoCmsHome.seoMetaTags}
           />
-          <Navbar toggleDrawer={() => makeToggleDrawer()} isExpanded={isExpanded} />
+          <Navbar
+            toggleDrawer={() => makeToggleDrawer()}
+            isExpanded={isExpanded}
+          />
           {children}
           <footer className="bg-sermas-gray-200 p-16">
             <div className="md:flex text-white container mx-auto">
