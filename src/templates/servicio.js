@@ -48,7 +48,7 @@ export default ({ data: { datoCmsServicio, datoCmsNewsletter } }) => {
       </section>
 
       <section className="container mx-auto md:w-4/5 mb-16 px-4 md:px-8 md:px-0">
-        <div className="shadow-2xl rounded-lg mb-8 md:mb-0 p-8 md:p-12 ">
+        <div className="shadow-2xl rounded-lg mb-8 md:mb-0 p-8 md:p-12 bg-white">
           <Newsletter {...datoCmsNewsletter} />
         </div>
       </section>
