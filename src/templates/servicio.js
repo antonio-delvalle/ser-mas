@@ -9,7 +9,7 @@ import ServiceMainContent from "./../components/service-main-content";
 import VideoPreview from "./../components/video-preview";
 
 export default ({ data: { datoCmsServicio, datoCmsNewsletter } }) => {
-  console.log(datoCmsServicio.content);
+
   return (
     <Layout>
       <HelmetDatoCms seo={datoCmsServicio.seoMetaTags} />

@@ -12,19 +12,26 @@ import {
   faChevronUp,
   faChevronDown,
   faPlayCircle,
+  faEnvelope,
+  faMapMarkedAlt,
+  faPhone,
+  faExternalLinkAlt,
 } from "@fortawesome/free-solid-svg-icons";
-import { faWaze, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import { fab } from "@fortawesome/free-brands-svg-icons";
 import Navbar from "./nav-bar";
 import "./../styles/layout.css";
 
 library.add(
+  fab,
   faChevronCircleRight,
   faBars,
   faChevronUp,
   faChevronDown,
   faPlayCircle,
-  faWaze,
-  faWhatsapp
+  faEnvelope,
+  faMapMarkedAlt,
+  faPhone,
+  faExternalLinkAlt
 );
 
 const TemplateWrapper = ({ children }) => {

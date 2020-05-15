@@ -21,6 +21,7 @@
     "gatsby-transformer-remark": "^2.6.39",
     "node-sass": "^4.13.0",
     "react": "^16.10.2",
+    "react-clipboard.js": "^2.0.16",
     "react-dom": "^16.10.2",
     "react-helmet": "^5.2.0",
     "react-masonry-component": "^6.2.1",
