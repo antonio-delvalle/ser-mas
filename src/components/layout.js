@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { Link } from "gatsby";
 
 import { StaticQuery, graphql } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
@@ -82,6 +83,10 @@ const TemplateWrapper = ({ children }) => {
                 html
               }
             }
+            links {
+              slug
+              title
+            }
           }
           allDatoCmsSocialProfile(sort: { fields: [position], order: ASC }) {
             edges {
@@ -95,7 +100,7 @@ const TemplateWrapper = ({ children }) => {
         }
       `}
       render={(data) => (
-        <div className={`${isExpanded ? `hey` : `ho`} mx-auto`}>
+        <div className="mx-auto">
           <HelmetDatoCms
             favicon={data.datoCmsSite.faviconMetaTags}
             seo={data.datoCmsHome.seoMetaTags}
@@ -115,7 +120,11 @@ const TemplateWrapper = ({ children }) => {
                   }}
                 />
               </section>
-              <section className="md:w-1/2">&nbsp;</section>
+              <section className="md:w-1/2">
+                {data.datoCmsFooter.links.map((link) => (
+                  <Link to={link.slug}>{link.title}</Link>
+                ))}
+              </section>
             </div>
           </footer>
         </div>

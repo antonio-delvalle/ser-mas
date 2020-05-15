@@ -1,7 +1,7 @@
 import React from "react";
 import Img from "gatsby-image";
 
-const ServiceCard = ({ image, title, text }) => {
+const ServiceCard = ({ image, title, textNode }) => {
   return (
     <div className="mx-auto shadow-2xl rounded-lg mb-8 md:mb-0">
       <div>
@@ -11,7 +11,12 @@ const ServiceCard = ({ image, title, text }) => {
         <div className="flex relative p-8">
           <div className="">
             <h6 className="text-2xl font-bold leading-tight mb-4">{title}</h6>
-            <p className="mb-4">{text}</p>
+            <div
+              className="mb-4"
+              dangerouslySetInnerHTML={{
+                __html: textNode.childMarkdownRemark.html,
+              }}
+            />
           </div>
         </div>
       </div>

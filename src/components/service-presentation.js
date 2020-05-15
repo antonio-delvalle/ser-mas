@@ -5,7 +5,7 @@ import InlineCta from "./inline-cta";
 const ServicePresentation = ({
   title,
   pretitle,
-  text,
+  textNode,
   imageType,
   ctaText,
   image,
@@ -15,13 +15,18 @@ const ServicePresentation = ({
     <div className="py-24 bg-sermas-green-100">
       <div className="container md:flex mx-auto">
         <div className="md:w-1/2 sm:px-16">
-          <Img className="object-cover" fluid={image.fluid} />
+          <Img fluid={image.fluid} />
         </div>
         <div className="md:w-1/2 flex relative">
           <div className="mt-16 md:mt-0 ml-8 w-2/3">
             <h5 className="tracking-sermas mb-4">{pretitle}</h5>
             <h6 className="text-2xl font-bold leading-tight mb-4">{title}</h6>
-            <p className="mb-8">{text}</p>
+            <div
+              className="mb-8"
+              dangerouslySetInnerHTML={{
+                __html: textNode.childMarkdownRemark.html,
+              }}
+            />
             <InlineCta url={`/servicio/${serviceLink.slug}`} text={ctaText} />
           </div>
         </div>
@@ -36,7 +41,12 @@ const ServicePresentation = ({
           <div className="md:w-2/3 md:mr-16">
             <h5 className="tracking-sermas mb-4">{pretitle}</h5>
             <h6 className="text-2xl font-bold leading-tight mb-4">{title}</h6>
-            <p className="mb-8">{text}</p>
+            <div
+              className="mb-8"
+              dangerouslySetInnerHTML={{
+                __html: textNode.childMarkdownRemark.html,
+              }}
+            />
             <InlineCta url={`/servicio/${serviceLink.slug}`} text={ctaText} />
           </div>
         </div>
@@ -54,7 +64,12 @@ const ServicePresentation = ({
           <div className="md:w-2/3 md:mr-16">
             <h5 className="tracking-sermas mb-4">{pretitle}</h5>
             <h6 className="text-2xl font-bold leading-tight mb-4">{title}</h6>
-            <p className="mb-8">{text}</p>
+            <div
+              className="mb-8"
+              dangerouslySetInnerHTML={{
+                __html: textNode.childMarkdownRemark.html,
+              }}
+            />
             <InlineCta url={`/servicio/${serviceLink.slug}`} text={ctaText} />
           </div>
         </div>
