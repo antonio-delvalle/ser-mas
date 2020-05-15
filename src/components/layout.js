@@ -13,6 +13,7 @@ import {
   faChevronDown,
   faPlayCircle,
 } from "@fortawesome/free-solid-svg-icons";
+import { faWaze, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import Navbar from "./nav-bar";
 import "./../styles/layout.css";
 
@@ -21,7 +22,9 @@ library.add(
   faBars,
   faChevronUp,
   faChevronDown,
-  faPlayCircle
+  faPlayCircle,
+  faWaze,
+  faWhatsapp
 );
 
 const TemplateWrapper = ({ children }) => {
