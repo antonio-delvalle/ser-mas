@@ -210,6 +210,10 @@ html {
   }
 }
 
+.active-menu {
+  color: #109BAD;
+}
+
 .center-video-preview-container {
   display: flex; /* establish flex container */
   flex-direction: column; /* stack flex items vertically */
