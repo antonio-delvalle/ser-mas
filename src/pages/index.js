@@ -138,7 +138,11 @@ export const query = graphql`
             slug
           }
           title
-          text
+          textNode {
+            childMarkdownRemark {
+              html
+            }
+          }
           pretitle
           imageType
           image {
@@ -151,7 +155,11 @@ export const query = graphql`
       }
       serviceCards {
         ... on DatoCmsServiceCard {
-          text
+          textNode {
+            childMarkdownRemark {
+              html
+            }
+          }
           title
           id
           ctaText
@@ -167,7 +175,11 @@ export const query = graphql`
         ... on DatoCmsTestimonial {
           id
           name
-          text
+          textNode {
+            childMarkdownRemark {
+              html
+            }
+          }
         }
       }
     }
