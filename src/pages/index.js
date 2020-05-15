@@ -18,7 +18,9 @@ const IndexPage = ({ data: { datoCmsHome, datoCmsNewsletter } }) => {
     dots: false,
     arrows: true,
     slidesToShow: 3,
+    slidesToScroll: 1,
     initialSlide: 0,
+    infinite: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -26,6 +28,7 @@ const IndexPage = ({ data: { datoCmsHome, datoCmsNewsletter } }) => {
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
+          initialSlide: 0,
           dots: false,
           arrows: true,
         },
@@ -36,6 +39,7 @@ const IndexPage = ({ data: { datoCmsHome, datoCmsNewsletter } }) => {
           slidesToShow: 1,
           slidesToScroll: 1,
           initialSlide: 0,
+          infinite: true,
           dots: false,
           arrows: true,
         },
@@ -45,7 +49,8 @@ const IndexPage = ({ data: { datoCmsHome, datoCmsNewsletter } }) => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          dots: false,
+          infinite: true,
+          dots: true,
           arrows: true,
         },
       },
@@ -102,7 +107,7 @@ const IndexPage = ({ data: { datoCmsHome, datoCmsNewsletter } }) => {
       </section>
 
       <section className="container mx-auto md:w-4/5 mb-16 px-4 md:px-8 md:px-0">
-        <div className="shadow-2xl rounded-lg mb-8 md:mb-0 p-8 md:p-12 ">
+        <div className="shadow-2xl rounded-lg mb-8 md:mb-0 p-8 md:p-12 bg-white">
           <Newsletter {...datoCmsNewsletter} />
         </div>
       </section>

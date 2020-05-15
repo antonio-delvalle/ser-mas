@@ -48,29 +48,29 @@ const Navbar = ({ toggleDrawer }) => {
                 className="ml-8 lg:ml-0 lg:hidden lg:absolute lg:bg-sermas-gray-100 lg:py-4 lg:rounded-lg lg:shadow-2xl lg:border"
               >
                 <li className="border-t lg:border-0 lg:hover:bg-sermas-green-200">
-                  <Link className="p-4 block" to="/servicio/fisioterapia">
+                  <Link className="p-4 block" to="/servicio/fisioterapia" activeClassName="active">
                     Fisioterapia
                   </Link>
                 </li>
                 <li className="border-t lg:border-0 lg:hover:bg-sermas-green-200">
-                  <Link className="p-4 block" to="servicio/neurofeedback">
+                  <Link className="p-4 block" to="/servicio/neurofeedback" activeClassName="active">
                     Neurofeedback
                   </Link>
                 </li>
                 <li className="border-t lg:border-0 lg:hover:bg-sermas-green-200">
-                  <Link className="p-4 block" to="/servicio/constelaciones-vinculares">
+                  <Link className="p-4 block" to="/servicio/constelaciones-vinculares" activeClassName="active">
                     Constelaciones vinculares
                   </Link>
                 </li>
               </ul>
             </li>
             <li className="sm:p-4 border-t border-b lg:border-0 button-nav">
-              <Link className="p-4 sm:p-0 font-bold block" to="/nosotros">
+              <Link className="p-4 sm:p-0 font-bold block" to="/nosotros" activeClassName="active">
                 Nosotros
               </Link>
             </li>
             <li className="sm:p-4 border-b lg:border-0 button-nav">
-              <Link className="p-4 sm:p-0 font-bold block" to="/contacto">
+              <Link className="p-4 sm:p-0 font-bold block" to="/contacto" activeClassName="active">
                 Contacto
               </Link>
             </li>

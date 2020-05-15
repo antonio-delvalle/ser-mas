@@ -235,3 +235,36 @@ html {
 .text-12xl {
   font-size: 8rem;
 }
+
+
+p {
+  margin-bottom: 1rem;
+}
+
+.nosotros-hero {
+  height: auto;
+}
+
+@media (min-width: 640px) {
+  .nosotros-hero {
+    height: 252px;
+  }
+}
+@media (min-width: 768px) {
+  .nosotros-hero {
+    height: 405px;
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .nosotros-hero {
+    height: 516px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .nosotros-hero {
+    height: 516px;
+  }
+}
