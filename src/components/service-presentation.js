@@ -27,7 +27,11 @@ const ServicePresentation = ({
                 __html: textNode.childMarkdownRemark.html,
               }}
             />
-            <InlineCta url={`/servicio/${serviceLink.slug}`} text={ctaText} />
+            <InlineCta
+              url={`/servicio/${serviceLink.slug}`}
+              text={ctaText}
+              isInternal={true}
+            />
           </div>
         </div>
       </div>
@@ -47,7 +51,11 @@ const ServicePresentation = ({
                 __html: textNode.childMarkdownRemark.html,
               }}
             />
-            <InlineCta url={`/servicio/${serviceLink.slug}`} text={ctaText} />
+            <InlineCta
+              url={`/servicio/${serviceLink.slug}`}
+              text={ctaText}
+              isInternal={true}
+            />
           </div>
         </div>
         <div className="md:w-1/2">
@@ -70,7 +78,11 @@ const ServicePresentation = ({
                 __html: textNode.childMarkdownRemark.html,
               }}
             />
-            <InlineCta url={`/servicio/${serviceLink.slug}`} text={ctaText} />
+            <InlineCta
+              url={`/servicio/${serviceLink.slug}`}
+              text={ctaText}
+              isInternal={true}
+            />
           </div>
         </div>
         <div className="md:w-1/2">
