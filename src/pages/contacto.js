@@ -1,6 +1,7 @@
 import React from "react";
 import Layout from "../components/layout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { HelmetDatoCms } from "gatsby-source-datocms";
 import Newsletter from "./../components/newsletter";
 import Img from "gatsby-image";
 import Clipboard from "react-clipboard.js";
@@ -8,6 +9,9 @@ import Clipboard from "react-clipboard.js";
 const Contacto = ({ data: { contacto, newsletter } }) => {
   return (
     <Layout>
+      <HelmetDatoCms seo={contacto.seoMetaTags}>
+        <title>SER+ | Contacto</title>
+      </HelmetDatoCms>
       <section className="container mx-auto pb-16">
         <header className="md:flex">
           <div className="md:w-1/2 px-4 md:px-8">

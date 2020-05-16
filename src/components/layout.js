@@ -47,7 +47,7 @@ const TemplateWrapper = ({ children }) => {
     <StaticQuery
       query={graphql`
         query LayoutQuery {
-          datoCmsSite {
+          site: datoCmsSite {
             globalSeo {
               siteName
               fallbackSeo {
@@ -66,7 +66,7 @@ const TemplateWrapper = ({ children }) => {
               ...GatsbyDatoCmsFaviconMetaTags
             }
           }
-          datoCmsHome {
+          home: datoCmsHome {
             seoMetaTags {
               ...GatsbyDatoCmsSeoMetaTags
             }
@@ -77,13 +77,14 @@ const TemplateWrapper = ({ children }) => {
             }
             copyright
           }
-          datoCmsFooter {
+          footer: datoCmsFooter {
             copyrightNode {
               childMarkdownRemark {
                 html
               }
             }
             links {
+              id
               slug
               title
             }
@@ -99,36 +100,41 @@ const TemplateWrapper = ({ children }) => {
           }
         }
       `}
-      render={(data) => (
-        <div className="mx-auto">
-          <HelmetDatoCms
-            favicon={data.datoCmsSite.faviconMetaTags}
-            seo={data.datoCmsHome.seoMetaTags}
-          />
-          <Navbar
-            toggleDrawer={() => makeToggleDrawer()}
-            isExpanded={isExpanded}
-          />
-          {children}
-          <footer className="bg-sermas-gray-200 p-16">
-            <div className="md:flex text-white container mx-auto">
-              <section className="md:w-1/2">
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html:
-                      data.datoCmsFooter.copyrightNode.childMarkdownRemark.html,
-                  }}
-                />
-              </section>
-              <section className="md:w-1/2">
-                {data.datoCmsFooter.links.map((link) => (
-                  <Link to={link.slug}>{link.title}</Link>
-                ))}
-              </section>
-            </div>
-          </footer>
-        </div>
-      )}
+      render={({ site, home, footer }) => {
+        return (
+          <div className="mx-auto">
+            <HelmetDatoCms
+              favicon={site.faviconMetaTags}
+              seo={home.seoMetaTags}
+            >
+              <html lang="es" />
+            </HelmetDatoCms>
+            <Navbar
+              toggleDrawer={() => makeToggleDrawer()}
+              isExpanded={isExpanded}
+            />
+            {children}
+            <footer className="bg-sermas-gray-200 p-16">
+              <div className="md:flex text-white container mx-auto">
+                <section className="md:w-1/2">
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: footer.copyrightNode.childMarkdownRemark.html,
+                    }}
+                  />
+                </section>
+                <section className="md:w-1/2">
+                  {footer.links.map((link) => (
+                    <Link key={link.id} to={link.slug}>
+                      {link.title}
+                    </Link>
+                  ))}
+                </section>
+              </div>
+            </footer>
+          </div>
+        );
+      }}
     />
   );
 };

@@ -9,10 +9,11 @@ import ServiceMainContent from "./../components/service-main-content";
 import VideoPreview from "./../components/video-preview";
 
 export default ({ data: { datoCmsServicio, datoCmsNewsletter } }) => {
-
   return (
     <Layout>
-      <HelmetDatoCms seo={datoCmsServicio.seoMetaTags} />
+      <HelmetDatoCms seo={datoCmsServicio.seoMetaTags}>
+        <title>{`SER+ | ${datoCmsServicio.slug}`}</title>
+      </HelmetDatoCms>
       <MainHeader
         title={datoCmsServicio.heroTitle}
         subtitle={datoCmsServicio.heroSubtitle}
@@ -59,6 +60,7 @@ export default ({ data: { datoCmsServicio, datoCmsNewsletter } }) => {
 export const query = graphql`
   query ServicioQuery($slug: String!) {
     datoCmsServicio(slug: { eq: $slug }) {
+      slug
       heroTitle
       heroPretitle
       heroSubtitle

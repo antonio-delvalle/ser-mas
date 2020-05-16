@@ -7,7 +7,10 @@ import Newsletter from "./../components/newsletter";
 
 const Nosotros = ({ data: { nosotros, datoCmsNewsletter } }) => (
   <Layout>
-    <HelmetDatoCms seo={nosotros.seoMetaTags} />
+    <HelmetDatoCms seo={nosotros.seoMetaTags}>
+      <html lang="es" />
+      <title>SER+ | Nosotros</title>
+    </HelmetDatoCms>
     <section className="mx-auto mb-16 md:px-0 max-w-screen-xl">
       <Img
         className="nosotros-hero"

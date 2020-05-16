@@ -7,7 +7,7 @@ import ServicePresentation from "../components/service-presentation";
 import ServiceCard from "../components/service-card";
 import TestimonialCard from "../components/testimonial-card";
 import Newsletter from "../components/newsletter";
-
+import { HelmetDatoCms } from "gatsby-source-datocms";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -58,6 +58,9 @@ const IndexPage = ({ data: { datoCmsHome, datoCmsNewsletter } }) => {
   };
   return (
     <Layout>
+      <HelmetDatoCms seo={datoCmsHome.seoMetaTags}>
+        <title>SER+</title>
+      </HelmetDatoCms>
       <MainHeader
         title={datoCmsHome.heroTitle}
         subtitle={datoCmsHome.heroSubtitle}
