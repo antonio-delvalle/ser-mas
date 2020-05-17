@@ -17,6 +17,7 @@ const Biography = ({ title, text, image }) => {
           {title}
         </h4>
         <div
+          className="content"
           dangerouslySetInnerHTML={{
             __html: text.childMarkdownRemark.html,
           }}

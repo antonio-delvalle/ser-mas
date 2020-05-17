@@ -7,11 +7,11 @@ const TestimonialCard = ({ name, textNode }) => {
         <div className="p-8">
           <h6 className="text-2xl font-bold leading-tight mb-4">{name}</h6>
           <div
-              className="mb-4"
-              dangerouslySetInnerHTML={{
-                __html: textNode.childMarkdownRemark.html,
-              }}
-            />
+            className="mb-4 content"
+            dangerouslySetInnerHTML={{
+              __html: textNode.childMarkdownRemark.html,
+            }}
+          />
         </div>
       </div>
     </div>

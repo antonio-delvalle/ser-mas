@@ -30,6 +30,7 @@ const Nosotros = ({ data: { nosotros, datoCmsNewsletter } }) => (
           <div className="md:w-2/3 md:mr-16">
             <h2 className="text-4xl font-bold mb-4">{nosotros.misionTitle}</h2>
             <div
+              className="content"
               dangerouslySetInnerHTML={{
                 __html: nosotros.misionTextNode.childMarkdownRemark.html,
               }}
@@ -51,6 +52,7 @@ const Nosotros = ({ data: { nosotros, datoCmsNewsletter } }) => (
           <div className="mt-16 md:mt-0 md:ml-8 p-8 md:p-0 w-full md:w-2/3">
             <h2 className="text-4xl font-bold mb-4">{nosotros.visionTitle}</h2>
             <div
+              className="content"
               dangerouslySetInnerHTML={{
                 __html: nosotros.visionTextNode.childMarkdownRemark.html,
               }}
@@ -67,6 +69,7 @@ const Nosotros = ({ data: { nosotros, datoCmsNewsletter } }) => (
       <div className=" md:flex">
         <div className="lg:w-1/2">
           <div
+            className="content"
             dangerouslySetInnerHTML={{
               __html: nosotros.valoresTextLeftNode.childMarkdownRemark.html,
             }}
@@ -74,6 +77,7 @@ const Nosotros = ({ data: { nosotros, datoCmsNewsletter } }) => (
         </div>
         <div className="lg:w-1/2">
           <div
+            className="content"
             dangerouslySetInnerHTML={{
               __html: nosotros.valoresTextRightNode.childMarkdownRemark.html,
             }}

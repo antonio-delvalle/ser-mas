@@ -12,6 +12,7 @@ const PoliticaDePrivacidad = ({ data: { politica } }) => (
       <div className="w-full md:w-2/3 p-8 sm:ml-8 md:p-0">
         <h1 className="text-4xl mb-8">{politica.title}</h1>
         <div
+          className="content"
           dangerouslySetInnerHTML={{
             __html: politica.contentNode.childMarkdownRemark.html,
           }}

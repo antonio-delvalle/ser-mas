@@ -118,6 +118,7 @@ const TemplateWrapper = ({ children }) => {
               <div className="md:flex text-white container mx-auto">
                 <section className="md:w-1/2">
                   <div
+                    className="content"
                     dangerouslySetInnerHTML={{
                       __html: footer.copyrightNode.childMarkdownRemark.html,
                     }}
