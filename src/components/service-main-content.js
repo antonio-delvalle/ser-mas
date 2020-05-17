@@ -6,7 +6,7 @@ const ServiceMainContent = ({ text, image }) => {
     <div className="md:flex">
       <div className="md:w-1/2">
         <div
-          className="md:mr-4 mb-4"
+          className="content md:mr-4 mb-4"
           dangerouslySetInnerHTML={{
             __html: text.childMarkdownRemark.html,
           }}

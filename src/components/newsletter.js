@@ -27,7 +27,7 @@ const Newsletter = ({
           <h6 className="text-lg font-bold leading-tight mb-4">
             {remoteTitle}
           </h6>
-          <p className="mb-8">{remoteText}</p>
+          <p className="mb-8 content">{remoteText}</p>
           <InlineCta
             url="#"
             text="Haz tu cita para una sesión individual remota"

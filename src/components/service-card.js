@@ -12,7 +12,7 @@ const ServiceCard = ({ image, title, textNode }) => {
           <div className="">
             <h6 className="text-2xl font-bold leading-tight mb-4">{title}</h6>
             <div
-              className="mb-4"
+              className="mb-4 content"
               dangerouslySetInnerHTML={{
                 __html: textNode.childMarkdownRemark.html,
               }}

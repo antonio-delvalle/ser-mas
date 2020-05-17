@@ -22,7 +22,7 @@ const ServicePresentation = ({
             <h5 className="tracking-sermas mb-4">{pretitle}</h5>
             <h6 className="text-2xl font-bold leading-tight mb-4">{title}</h6>
             <div
-              className="mb-8"
+              className="mb-8 content"
               dangerouslySetInnerHTML={{
                 __html: textNode.childMarkdownRemark.html,
               }}
@@ -42,7 +42,7 @@ const ServicePresentation = ({
             <h5 className="tracking-sermas mb-4">{pretitle}</h5>
             <h6 className="text-2xl font-bold leading-tight mb-4">{title}</h6>
             <div
-              className="mb-8"
+              className="mb-8 content"
               dangerouslySetInnerHTML={{
                 __html: textNode.childMarkdownRemark.html,
               }}
@@ -65,7 +65,7 @@ const ServicePresentation = ({
             <h5 className="tracking-sermas mb-4">{pretitle}</h5>
             <h6 className="text-2xl font-bold leading-tight mb-4">{title}</h6>
             <div
-              className="mb-8"
+              className="mb-8 content"
               dangerouslySetInnerHTML={{
                 __html: textNode.childMarkdownRemark.html,
               }}

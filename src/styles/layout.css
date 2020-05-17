@@ -241,7 +241,13 @@ html {
 }
 
 
-p {
+.content p {
+  margin-bottom: 1rem;
+}
+
+.content ul, .content ol {
+  list-style: disc;
+  margin-left: 1rem;
   margin-bottom: 1rem;
 }
 
