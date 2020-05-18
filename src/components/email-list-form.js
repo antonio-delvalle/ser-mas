@@ -8,11 +8,9 @@ const EmailListForm = () => {
     e.preventDefault();
     addToMailchimp(email)
       .then((data) => {
-        alert(data.result);
+        data.result === 'success' && alert("Suscrito con éxito");
       })
       .catch((error) => {
-        // Errors in here are client side
-        // Mailchimp always returns a 200
       });
   };
 
