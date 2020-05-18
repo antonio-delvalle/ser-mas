@@ -20,7 +20,7 @@ const Newsletter = ({
             <EmailListForm />
           </div>
         </div>
-        <div className="w-full lg:w-px h-px lg:h-full my-8 lg:my-0 lg:mr-16 lg:ml-8 bg-gray-500 lg:mx-4">
+        <div className="w-full lg:w-px h-px lg:h-auto my-8 lg:my-0 lg:mr-16 lg:ml-8 bg-gray-500 lg:mx-4">
           &nbsp;
         </div>
         <div className="lg:w-1/2">
