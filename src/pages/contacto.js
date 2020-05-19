@@ -118,7 +118,7 @@ const Contacto = ({ data: { contacto, newsletter } }) => {
               </a>
             </div>
             <div className="flex items-center my-6">
-              <a href="#" className="flex items-center">
+              <a href="mailto:contacto@ser-mas.mx" className="flex items-center">
                 <FontAwesomeIcon
                   className="text-2xl text-sermas-green-300 mr-4"
                   icon="envelope"
