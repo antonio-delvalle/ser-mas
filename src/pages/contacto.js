@@ -42,7 +42,7 @@ const Contacto = ({ data: { contacto, newsletter } }) => {
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="#"
+                href="tel:5562715211"
                 className="flex items-center"
               >
                 <FontAwesomeIcon
@@ -51,7 +51,7 @@ const Contacto = ({ data: { contacto, newsletter } }) => {
                 />
                 Llama al{" "}
                 <span className="ml-1 flex flex-col hover:text-sermas-green-200 font-bold">
-                  55 1234 5678
+                  55 6271 5211
                 </span>
               </a>
             </div>
