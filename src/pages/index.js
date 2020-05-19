@@ -13,7 +13,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import MainHeader from "../components/main-header";
 
-const IndexPage = ({ data: { datoCmsHome, datoCmsNewsletter } }) => {
+const IndexPage = ({ data: { home, newsletter } }) => {
   const sliderSettings = {
     dots: false,
     arrows: true,
@@ -58,16 +58,16 @@ const IndexPage = ({ data: { datoCmsHome, datoCmsNewsletter } }) => {
   };
   return (
     <Layout>
-      <HelmetDatoCms seo={datoCmsHome.seoMetaTags}>
+      <HelmetDatoCms seo={home.seoMetaTags}>
         <title>SER+</title>
       </HelmetDatoCms>
       <MainHeader
-        title={datoCmsHome.heroTitle}
-        subtitle={datoCmsHome.heroSubtitle}
-        ctaLink={datoCmsHome.heroCtaLink}
-        ctaText={datoCmsHome.heroCtaText}
-        image={datoCmsHome.heroImage}
-        pretitle=""
+        title={home.heroTitle}
+        subtitle={home.heroSubtitle}
+        ctaLink={home.heroCtaLink}
+        ctaText={home.heroCtaText}
+        image={home.heroImage}
+        pretitle={home.heroPreTitle}
       />
 
       <section className="bg-sermas-green-100 py-24 px-8 md:px-0">
@@ -78,12 +78,12 @@ const IndexPage = ({ data: { datoCmsHome, datoCmsNewsletter } }) => {
           <p>Webinars gratuitos y sesiones individuales remotas</p>
         </div>
         <div className="mx-auto md:mb-0 md:w-4/5 container">
-          <Newsletter {...datoCmsNewsletter} />
+          <Newsletter {...newsletter} />
         </div>
       </section>
 
       <section className="mb-16">
-        {datoCmsHome.servicePresentations.map((presentation) => (
+        {home.servicePresentations.map((presentation) => (
           <ServicePresentation key={presentation.id} {...presentation} />
         ))}
       </section>
@@ -93,7 +93,7 @@ const IndexPage = ({ data: { datoCmsHome, datoCmsNewsletter } }) => {
           Mas servicios
         </h6>
         <div className="md:grid grid-flow-col grid-cols-2 grid-rows-2 md:gap-16">
-          {datoCmsHome.serviceCards.map((card) => (
+          {home.serviceCards.map((card) => (
             <ServiceCard key={card.id} {...card} />
           ))}
         </div>
@@ -102,7 +102,7 @@ const IndexPage = ({ data: { datoCmsHome, datoCmsNewsletter } }) => {
       <section className="bg-sermas-green-200 mb-16">
         <div className="md:w-4/5 mx-auto">
           <Slider {...sliderSettings}>
-            {datoCmsHome.testimonials.map((testimonial) => (
+            {home.testimonials.map((testimonial) => (
               <TestimonialCard key={testimonial.id} {...testimonial} />
             ))}
           </Slider>
@@ -111,7 +111,7 @@ const IndexPage = ({ data: { datoCmsHome, datoCmsNewsletter } }) => {
 
       <section className="container mx-auto md:w-4/5 mb-16 px-4 md:px-8 md:px-0">
         <div className="shadow-2xl rounded-lg mb-8 md:mb-0 p-8 md:p-12 bg-white">
-          <Newsletter {...datoCmsNewsletter} />
+          <Newsletter {...newsletter} />
         </div>
       </section>
     </Layout>
@@ -122,9 +122,10 @@ export default IndexPage;
 
 export const query = graphql`
   query IndexQuery {
-    datoCmsHome {
+    home: datoCmsHome {
       heroSubtitle
       heroTitle
+      heroPreTitle
       heroCtaLink
       heroCtaText
       heroImage {
@@ -186,7 +187,7 @@ export const query = graphql`
         }
       }
     }
-    datoCmsNewsletter {
+    newsletter: datoCmsNewsletter {
       newsletterTitle
       newsletterText
       remoteTitle

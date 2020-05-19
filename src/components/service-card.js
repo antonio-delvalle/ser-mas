@@ -10,7 +10,7 @@ const ServiceCard = ({ image, title, textNode }) => {
         </div>
         <div className="flex relative p-8">
           <div className="">
-            <h6 className="text-2xl font-bold leading-tight mb-4">{title}</h6>
+            <h2 className="text-2xl font-bold leading-tight mb-4">{title}</h2>
             <div
               className="mb-4 content"
               dangerouslySetInnerHTML={{
