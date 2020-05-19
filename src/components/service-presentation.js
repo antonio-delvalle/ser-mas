@@ -18,7 +18,7 @@ const ServicePresentation = ({
           <Img fluid={image.fluid} />
         </div>
         <div className="md:w-1/2 flex relative">
-          <div className="mt-16 md:mt-0 ml-8 w-2/3">
+          <div className="mt-16 md:mt-0 ml-8 w-full md:w-2/3 mr-8 md:mr-0">
             <h5 className="tracking-sermas mb-4">{pretitle}</h5>
             <h6 className="text-2xl font-bold leading-tight mb-4">{title}</h6>
             <div
@@ -37,8 +37,8 @@ const ServicePresentation = ({
   const full = () => (
     <div>
       <div className="md:flex mx-auto">
-        <div className="p-8 sm:p-0 md:py-24 md:w-1/2 md:flex relative justify-end">
-          <div className="md:w-2/3 md:mr-16">
+        <div className="px-8 sm:p-0 md:py-24 md:w-1/2 md:flex relative justify-end">
+          <div className="mt-24 mb-8 md:mt-0 md:w-2/3 md:mr-16">
             <h5 className="tracking-sermas mb-4">{pretitle}</h5>
             <h6 className="text-2xl font-bold leading-tight mb-4">{title}</h6>
             <div
@@ -60,8 +60,8 @@ const ServicePresentation = ({
   const regular = () => (
     <div className="py-24">
       <div className="md:flex mx-auto">
-        <div className="mt-8 p-8 sm:p-0 md:mt-0 md:w-1/2 flex relative justify-end">
-          <div className="md:w-2/3 md:mr-16">
+        <div className="px-8 sm:p-0 md:mt-0 md:w-1/2 flex relative justify-end">
+          <div className="md:w-2/3 md:mr-16 mb-8">
             <h5 className="tracking-sermas mb-4">{pretitle}</h5>
             <h6 className="text-2xl font-bold leading-tight mb-4">{title}</h6>
             <div
