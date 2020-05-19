@@ -21,6 +21,7 @@ import {
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import Navbar from "./nav-bar";
 import "./../styles/layout.css";
+import SocialProfile from "./social-profile";
 
 library.add(
   fab,
@@ -89,7 +90,10 @@ const TemplateWrapper = ({ children }) => {
               title
             }
           }
-          allDatoCmsSocialProfile(sort: { fields: [position], order: ASC }) {
+          socialProfiles: allDatoCmsSocialProfile(
+            sort: { fields: [position], order: ASC }
+            filter: { locale: { eq: "en" } }
+          ) {
             edges {
               node {
                 id
@@ -100,7 +104,7 @@ const TemplateWrapper = ({ children }) => {
           }
         }
       `}
-      render={({ site, home, footer }) => {
+      render={({ site, home, footer, socialProfiles }) => {
         return (
           <div className="mx-auto">
             <HelmetDatoCms
@@ -125,11 +129,22 @@ const TemplateWrapper = ({ children }) => {
                   />
                 </section>
                 <section className="md:w-1/2">
-                  {footer.links.map((link) => (
-                    <Link key={link.id} to={link.slug}>
-                      {link.title}
-                    </Link>
-                  ))}
+                  <div className="flex mb-4">
+                    {socialProfiles.edges.map(({ node: profile }) => (
+                      <SocialProfile
+                        key={profile.id}
+                        type={profile.profileType}
+                        url={profile.url}
+                      />
+                    ))}
+                  </div>
+                  <div>
+                    {footer.links.map((link) => (
+                      <Link key={link.id} to={link.slug}>
+                        {link.title}
+                      </Link>
+                    ))}
+                  </div>
                 </section>
               </div>
             </footer>
