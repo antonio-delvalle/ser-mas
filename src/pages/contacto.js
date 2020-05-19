@@ -5,6 +5,7 @@ import { HelmetDatoCms } from "gatsby-source-datocms";
 import Newsletter from "./../components/newsletter";
 import Img from "gatsby-image";
 import Clipboard from "react-clipboard.js";
+import { graphql } from "gatsby";
 
 const Contacto = ({ data: { contacto, newsletter } }) => {
   return (
