@@ -42,7 +42,7 @@ const Contacto = ({ data: { contacto, newsletter } }) => {
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="tel:5562715211"
+                href={`tel:${contacto.phoneNumber}`}
                 className="flex items-center"
               >
                 <FontAwesomeIcon
@@ -51,7 +51,7 @@ const Contacto = ({ data: { contacto, newsletter } }) => {
                 />
                 Llama al{" "}
                 <span className="ml-1 flex flex-col hover:text-sermas-green-200 font-bold">
-                  55 6271 5211
+                  {contacto.phoneNumber}
                 </span>
               </a>
             </div>
@@ -59,7 +59,7 @@ const Contacto = ({ data: { contacto, newsletter } }) => {
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="#"
+                href={`${contacto.whatsappNumber}`}
                 className="flex items-center"
               >
                 <FontAwesomeIcon
@@ -80,7 +80,7 @@ const Contacto = ({ data: { contacto, newsletter } }) => {
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://www.waze.com/ul?place=ChIJeSLCltID0oURndI9f5nzPUY&ll=19.51314200%2C-99.23235820&navigate=yes"
+                href={contacto.wazeUrl}
                 className="flex items-center"
               >
                 <FontAwesomeIcon
@@ -101,7 +101,7 @@ const Contacto = ({ data: { contacto, newsletter } }) => {
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://www.google.com/maps/place/SER%2B/@19.513142,-99.2345469,17z/data=!3m1!4b1!4m5!3m4!1s0x85d203d296c22279:0x463df3997f3dd29d!8m2!3d19.513142!4d-99.2323582"
+                href={contacto.googleMapsUrl}
                 className="flex items-center"
               >
                 <FontAwesomeIcon
@@ -119,7 +119,7 @@ const Contacto = ({ data: { contacto, newsletter } }) => {
               </a>
             </div>
             <div className="flex items-center my-6">
-              <a href="mailto:contacto@ser-mas.mx" className="flex items-center">
+              <a href={`mailto:${contacto.email}`} className="flex items-center">
                 <FontAwesomeIcon
                   className="text-2xl text-sermas-green-300 mr-4"
                   icon="envelope"
@@ -139,7 +139,7 @@ const Contacto = ({ data: { contacto, newsletter } }) => {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://www.google.com/maps/place/SER%2B/@19.513142,-99.2345469,17z/data=!3m1!4b1!4m5!3m4!1s0x85d203d296c22279:0x463df3997f3dd29d!8m2!3d19.513142!4d-99.2323582"
+              href={contacto.googleMapsUrl}
             >
               <Img fluid={contacto.image.fluid} />
             </a>
@@ -169,6 +169,11 @@ export const query = graphql`
           ...GatsbyDatoCmsSizes
         }
       }
+      phoneNumber
+      whatsappNumber
+      wazeUrl
+      googleMapsUrl
+      email
     }
     newsletter: datoCmsNewsletter {
       newsletterTitle
