@@ -4,12 +4,12 @@ import InlineCta from "./inline-cta";
 import Img from "gatsby-image";
 
 const MainHeader = ({ ctaLink, ctaText, image, title, subtitle, pretitle }) => {
-  const displayPretitle = (pretitle) => <p className="tracking-sermas mb-4">{pretitle}</p>;
+  const displayPretitle = (pretitle) => <h1 className="text-center md:text-left tracking-sermas mb-4">{pretitle}</h1>;
 
   const displayTitle = (title) => (
-    <h1 className="text-center md:text-left font-bold text-4xl lg:text-6xl md:font-normal leading-tight mb-4 home-hero">
+    <h2 className="text-center md:text-left font-bold text-4xl lg:text-6xl md:font-normal leading-tight mb-4 home-hero">
       {title}
-    </h1>
+    </h2>
   );
 
   const displaySubtitle = subtitle => (
