@@ -19,16 +19,14 @@ const IndexPage = ({ data: { home, newsletter } }) => {
     arrows: true,
     slidesToShow: 3,
     slidesToScroll: 3,
-    initialSlide: 0,
-    infinite: true,
+    infinite: false,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          infinite: true,
-          initialSlide: 0,
+          infinite: false,
           dots: false,
           arrows: true,
         },
@@ -38,8 +36,7 @@ const IndexPage = ({ data: { home, newsletter } }) => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          initialSlide: 0,
-          infinite: true,
+          infinite: false,
           dots: true,
           arrows: false,
         },
@@ -49,8 +46,7 @@ const IndexPage = ({ data: { home, newsletter } }) => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          initialSlide: 0,
-          infinite: true,
+          infinite: false,
           dots: true,
           arrows: false,
         },
@@ -104,7 +100,11 @@ const IndexPage = ({ data: { home, newsletter } }) => {
         <div className="md:w-4/5 mx-auto">
           <Slider {...sliderSettings}>
             {home.testimonials.map((testimonial) => (
-              <TestimonialCard key={testimonial.id} {...testimonial} />
+              <TestimonialCard
+                key={testimonial.id}
+                name={testimonial.name}
+                textNode={testimonial.textNode}
+              />
             ))}
           </Slider>
         </div>
