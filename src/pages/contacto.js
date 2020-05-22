@@ -8,6 +8,147 @@ import Clipboard from "react-clipboard.js";
 import { graphql } from "gatsby";
 
 const Contacto = ({ data: { contacto, newsletter } }) => {
+  const getPhoneNumber = (phone) =>
+    phone && (
+      <div className="flex items-center my-6">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href={`tel:${phone}`}
+          className="flex items-center"
+        >
+          <FontAwesomeIcon
+            className="text-2xl text-sermas-green-300 mr-4"
+            icon="phone"
+          />
+          Llama al{" "}
+          <span className="ml-1 flex flex-col hover:text-sermas-green-200 font-bold">
+            {phone}
+          </span>
+        </a>
+      </div>
+    );
+
+  const getWhatsapp = (whatsapp) =>
+    whatsapp && (
+      <div className="flex items-center my-6">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href={`${whatsapp}`}
+          className="flex items-center"
+        >
+          <FontAwesomeIcon
+            className="text-3xl text-sermas-green-300 mr-4"
+            icon={["fab", "whatsapp"]}
+          />
+          Envíanos un{" "}
+          <span className="ml-1 flex items-center hover:text-sermas-green-200 font-bold">
+            <span>Whatsapp</span>{" "}
+            <FontAwesomeIcon
+              className="ml-2 text-sermas-green-300 text-xs"
+              icon="external-link-alt"
+            />
+          </span>
+        </a>
+      </div>
+    );
+
+  const getWaze = (waze) =>
+    waze && (
+      <div className="flex items-center my-6">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href={waze}
+          className="flex items-center"
+        >
+          <FontAwesomeIcon
+            className="text-3xl text-sermas-green-300 mr-4"
+            icon={["fab", "waze"]}
+          />
+          Ir en{" "}
+          <span className="ml-1 flex items-center hover:text-sermas-green-200 font-bold">
+            <span>Waze</span>{" "}
+            <FontAwesomeIcon
+              className="ml-2 text-sermas-green-300 text-xs"
+              icon="external-link-alt"
+            />
+          </span>
+        </a>
+      </div>
+    );
+
+  const getFacebookMessenger = (messenger) =>
+    messenger && (
+      <div className="flex items-center my-6">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href={messenger}
+          className="flex items-center"
+        >
+          <FontAwesomeIcon
+            className="text-3xl text-sermas-green-300 mr-4"
+            icon={["fab", "facebook"]}
+          />
+          Mensaje de{" "}
+          <span className="ml-1 flex items-center hover:text-sermas-green-200 font-bold">
+            <span>Facebook Messenger</span>{" "}
+            <FontAwesomeIcon
+              className="ml-2 text-sermas-green-300 text-xs"
+              icon="external-link-alt"
+            />
+          </span>
+        </a>
+      </div>
+    );
+
+  const getGoogleMaps = (maps) =>
+    maps && (
+      <div className="flex items-center my-6">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href={maps}
+          className="flex items-center"
+        >
+          <FontAwesomeIcon
+            className="text-2xl text-sermas-green-300 mr-4"
+            icon="map-marked-alt"
+          />
+          Ir en{" "}
+          <span className="ml-1 flex items-center hover:text-sermas-green-200 font-bold">
+            <span>Google Maps</span>{" "}
+            <FontAwesomeIcon
+              className="ml-2 text-sermas-green-300 text-xs"
+              icon="external-link-alt"
+            />
+          </span>
+        </a>
+      </div>
+    );
+
+  const getEmail = (email) =>
+    email && (
+      <div className="flex items-center my-6">
+        <a href={`mailto:${email}`} className="flex items-center">
+          <FontAwesomeIcon
+            className="text-2xl text-sermas-green-300 mr-4"
+            icon="envelope"
+          />
+          Envíanos un{" "}
+          <span className="ml-1 flex items-center hover:text-sermas-green-200 font-bold">
+            <span>email</span>{" "}
+            <FontAwesomeIcon
+              className="ml-2 text-sermas-green-300 text-xs"
+              icon="external-link-alt"
+            />
+          </span>
+        </a>
+      </div>
+    );
+
   return (
     <Layout>
       <HelmetDatoCms seo={contacto.seoMetaTags}>
@@ -38,102 +179,12 @@ const Contacto = ({ data: { contacto, newsletter } }) => {
               </div>
             </div>
             <hr className="h-px bg-gray-300 my-8" />
-            <div className="flex items-center my-6">
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href={`tel:${contacto.phoneNumber}`}
-                className="flex items-center"
-              >
-                <FontAwesomeIcon
-                  className="text-2xl text-sermas-green-300 mr-4"
-                  icon="phone"
-                />
-                Llama al{" "}
-                <span className="ml-1 flex flex-col hover:text-sermas-green-200 font-bold">
-                  {contacto.phoneNumber}
-                </span>
-              </a>
-            </div>
-            <div className="flex items-center my-6">
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href={`${contacto.whatsappNumber}`}
-                className="flex items-center"
-              >
-                <FontAwesomeIcon
-                  className="text-3xl text-sermas-green-300 mr-4"
-                  icon={["fab", "whatsapp"]}
-                />
-                Envíanos un{" "}
-                <span className="ml-1 flex items-center hover:text-sermas-green-200 font-bold">
-                  <span>Whatsapp</span>{" "}
-                  <FontAwesomeIcon
-                    className="ml-2 text-sermas-green-300 text-xs"
-                    icon="external-link-alt"
-                  />
-                </span>
-              </a>
-            </div>
-            <div className="flex items-center my-6">
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href={contacto.wazeUrl}
-                className="flex items-center"
-              >
-                <FontAwesomeIcon
-                  className="text-3xl text-sermas-green-300 mr-4"
-                  icon={["fab", "waze"]}
-                />
-                Ir en{" "}
-                <span className="ml-1 flex items-center hover:text-sermas-green-200 font-bold">
-                  <span>Waze</span>{" "}
-                  <FontAwesomeIcon
-                    className="ml-2 text-sermas-green-300 text-xs"
-                    icon="external-link-alt"
-                  />
-                </span>
-              </a>
-            </div>
-            <div className="flex items-center my-6">
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href={contacto.googleMapsUrl}
-                className="flex items-center"
-              >
-                <FontAwesomeIcon
-                  className="text-2xl text-sermas-green-300 mr-4"
-                  icon="map-marked-alt"
-                />
-                Ir en{" "}
-                <span className="ml-1 flex items-center hover:text-sermas-green-200 font-bold">
-                  <span>Google Maps</span>{" "}
-                  <FontAwesomeIcon
-                    className="ml-2 text-sermas-green-300 text-xs"
-                    icon="external-link-alt"
-                  />
-                </span>
-              </a>
-            </div>
-            <div className="flex items-center my-6">
-              <a href={`mailto:${contacto.email}`} className="flex items-center">
-                <FontAwesomeIcon
-                  className="text-2xl text-sermas-green-300 mr-4"
-                  icon="envelope"
-                />
-                Envíanos un{" "}
-                <span className="ml-1 flex items-center hover:text-sermas-green-200 font-bold">
-                  <span>email</span>{" "}
-                  <FontAwesomeIcon
-                    className="ml-2 text-sermas-green-300 text-xs"
-                    icon="external-link-alt"
-                  />
-                </span>
-              </a>
-            </div>
+            {getPhoneNumber(contacto.phoneNumber)}
+            {getWhatsapp(contacto.whatsappNumber)}
+            {getFacebookMessenger(contacto.facebookMessenger)}
+            {getWaze(contacto.wazeUrl)}
+            {getGoogleMaps(contacto.googleMapsUrl)}
+            {getEmail(contacto.email)}
           </div>
           <div className="md:w-1/2">
             <a
@@ -174,6 +225,7 @@ export const query = graphql`
       wazeUrl
       googleMapsUrl
       email
+      facebookMessenger
     }
     newsletter: datoCmsNewsletter {
       newsletterTitle

@@ -1,4 +1,5 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const TestimonialCard = ({ name, textNode }) => {
   return (
@@ -12,6 +13,13 @@ const TestimonialCard = ({ name, textNode }) => {
               __html: textNode.childMarkdownRemark.html,
             }}
           />
+          <div className="flex">
+            <FontAwesomeIcon icon="star" className="text-yellow-500" />
+            <FontAwesomeIcon icon="star" className="text-yellow-500" />
+            <FontAwesomeIcon icon="star" className="text-yellow-500" />
+            <FontAwesomeIcon icon="star" className="text-yellow-500" />
+            <FontAwesomeIcon icon="star" className="text-yellow-500" />
+          </div>
         </div>
       </div>
     </div>
