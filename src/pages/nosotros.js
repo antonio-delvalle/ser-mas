@@ -69,7 +69,7 @@ const Nosotros = ({ data: { nosotros, datoCmsNewsletter } }) => (
       <div className=" md:flex">
         <div className="lg:w-1/2">
           <div
-            className="content"
+            className="content p-4"
             dangerouslySetInnerHTML={{
               __html: nosotros.valoresTextLeftNode.childMarkdownRemark.html,
             }}
@@ -77,7 +77,7 @@ const Nosotros = ({ data: { nosotros, datoCmsNewsletter } }) => (
         </div>
         <div className="lg:w-1/2">
           <div
-            className="content"
+            className="content p-4"
             dangerouslySetInnerHTML={{
               __html: nosotros.valoresTextRightNode.childMarkdownRemark.html,
             }}
