@@ -9,6 +9,15 @@ import ServiceMainContent from "./../components/service-main-content";
 import VideoPreview from "./../components/video-preview";
 
 export default ({ data: { servicio, newsletter } }) => {
+  const getVideo = (url, preview) =>
+    url &&
+    preview && (
+      <section className="container mx-auto md:w-4/5 mb-16 px-4 md:px-8 md:px-0 ">
+        <div className="p-8 md:p-16">
+          <VideoPreview url={url} image={preview} />
+        </div>
+      </section>
+    );
   return (
     <Layout>
       <HelmetDatoCms seo={servicio.seoMetaTags}>
@@ -39,14 +48,7 @@ export default ({ data: { servicio, newsletter } }) => {
         </div>
       </section>
 
-      <section className="container mx-auto md:w-4/5 mb-16 px-4 md:px-8 md:px-0 ">
-        <div className="p-8 md:p-16">
-          <VideoPreview
-            url={servicio.videoUrl}
-            image={servicio.videoPreview}
-          />
-        </div>
-      </section>
+      {getVideo(servicio.videoUrl, servicio.videoPreview)}
 
       <section className="container mx-auto md:w-4/5 mb-16 px-4 md:px-8 md:px-0">
         <div className="shadow-2xl rounded-lg mb-8 md:mb-0 p-8 md:p-12 bg-white">
