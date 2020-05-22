@@ -18,7 +18,7 @@ const IndexPage = ({ data: { home, newsletter } }) => {
     dots: false,
     arrows: true,
     slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToScroll: 3,
     initialSlide: 0,
     infinite: true,
     responsive: [
@@ -49,6 +49,7 @@ const IndexPage = ({ data: { home, newsletter } }) => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          initialSlide: 0,
           infinite: true,
           dots: true,
           arrows: false,
