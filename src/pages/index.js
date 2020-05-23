@@ -55,9 +55,6 @@ const IndexPage = ({ data: { home, newsletter } }) => {
   };
   return (
     <Layout>
-      <HelmetDatoCms seo={home.seoMetaTags}>
-        <title>SER+</title>
-      </HelmetDatoCms>
       <MainHeader
         title={home.heroTitle}
         subtitle={home.heroSubtitle}

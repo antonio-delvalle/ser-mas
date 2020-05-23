@@ -111,6 +111,7 @@ const TemplateWrapper = ({ children }) => {
               seo={home.seoMetaTags}
             >
               <html lang="es" />
+              <title>SER+</title>
             </HelmetDatoCms>
             <Navbar
               toggleDrawer={() => makeToggleDrawer()}
