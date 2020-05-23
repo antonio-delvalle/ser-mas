@@ -43,7 +43,7 @@ const Nosotros = ({ data: { nosotros, datoCmsNewsletter } }) => (
       </div>
     </section>
 
-    <section className="py-24 bg-sermas-green-100">
+    <section className="py-24 bg-sermas-green-100 mb-16">
       <div className="container md:flex mx-auto">
         <div className="md:w-1/2 sm:px-16">
           <Img className="object-cover" fluid={nosotros.visionImage.fluid} />
@@ -57,31 +57,16 @@ const Nosotros = ({ data: { nosotros, datoCmsNewsletter } }) => (
                 __html: nosotros.visionTextNode.childMarkdownRemark.html,
               }}
             />
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section className="container mx-auto md:w-4/5 px-4 md:px-0 py-24">
-      <h2 className="text-center text-4xl font-bold mb-16">
-        {nosotros.valoresTitle}
-      </h2>
-      <div className=" md:flex">
-        <div className="lg:w-1/2">
-          <div
-            className="content p-4"
-            dangerouslySetInnerHTML={{
-              __html: nosotros.valoresTextLeftNode.childMarkdownRemark.html,
-            }}
-          />
-        </div>
-        <div className="lg:w-1/2">
-          <div
-            className="content p-4"
-            dangerouslySetInnerHTML={{
-              __html: nosotros.valoresTextRightNode.childMarkdownRemark.html,
-            }}
-          />
+            <h2 className="mt-8 text-4xl font-bold mb-4">{nosotros.valoresTitle}</h2>
+            <div
+              className="content"
+              dangerouslySetInnerHTML={{
+                __html: nosotros.valoresTextNode.childMarkdownRemark.html,
+              }}
+            />
+
+          </div>
         </div>
       </div>
     </section>
@@ -133,6 +118,11 @@ export const query = graphql`
         }
       }
       valoresTitle
+      valoresTextNode {
+        childMarkdownRemark {
+          html
+        }
+      }
       valoresTextLeftNode {
         childMarkdownRemark {
           html
