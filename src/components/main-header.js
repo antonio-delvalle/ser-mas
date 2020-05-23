@@ -1,10 +1,13 @@
 import React from "react";
-import EmailListForm from "./email-list-form";
-import InlineCta from "./inline-cta";
+import { Link } from "gatsby";
 import Img from "gatsby-image";
 
-const MainHeader = ({ ctaLink, ctaText, image, title, subtitle, pretitle }) => {
-  const displayPretitle = (pretitle) => <h1 className="text-center md:text-left tracking-sermas mb-4">{pretitle}</h1>;
+const MainHeader = ({ ctaLink, image, title, subtitle, pretitle }) => {
+  const displayPretitle = (pretitle) => (
+    <h1 className="text-center md:text-left tracking-sermas mb-4">
+      {pretitle}
+    </h1>
+  );
 
   const displayTitle = (title) => (
     <h2 className="text-center md:text-left font-bold text-4xl lg:text-6xl md:font-normal leading-tight mb-4 home-hero">
@@ -12,7 +15,7 @@ const MainHeader = ({ ctaLink, ctaText, image, title, subtitle, pretitle }) => {
     </h2>
   );
 
-  const displaySubtitle = subtitle => (
+  const displaySubtitle = (subtitle) => (
     <p className="text-center md:text-left mb-8">{subtitle}</p>
   );
 
@@ -22,13 +25,14 @@ const MainHeader = ({ ctaLink, ctaText, image, title, subtitle, pretitle }) => {
         <div className="md:pl-16">
           {pretitle && displayPretitle(pretitle)}
           {title && displayTitle(title)}
-          <div className="md:mr-4">
-            {subtitle && displaySubtitle(subtitle)}
-            <EmailListForm />
-            <hr className="h-px bg-gray-300 my-8" />
+          <div className="md:mr-4">{subtitle && displaySubtitle(subtitle)}</div>
 
-            <InlineCta url={ctaLink} text={ctaText} />
-          </div>
+          <Link
+            className="block text-center md:inline button-gradient mt-8 bg-sermas-green-300 py-3 px-8 rounded-lg text-white font-bold"
+            to={ctaLink}
+          >
+            Haz tu cita
+          </Link>
         </div>
       </div>
       <div className="hidden w-1/2 md:block md:top-0 md:right-0 lg:w-3/5 z-neg">
