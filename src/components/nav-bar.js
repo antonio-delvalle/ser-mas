@@ -10,7 +10,7 @@ const Navbar = ({ toggleDrawer, isExpanded }) => {
 
   const onHandleDrawerToggle = () => {
     if (isExpanded) toggleDrawer();
-  }
+  };
 
   return (
     <header id="header">
@@ -33,7 +33,7 @@ const Navbar = ({ toggleDrawer, isExpanded }) => {
             onClick={() => toggleDrawer()}
             className="flex items-center px-3 py-2 text-3xl text-sermas-green-300"
           >
-            <FontAwesomeIcon icon="bars" />
+            <FontAwesomeIcon icon={isExpanded ? "times" : "bars"} />
           </button>
         </div>
 
@@ -52,29 +52,54 @@ const Navbar = ({ toggleDrawer, isExpanded }) => {
                 className="ml-8 lg:ml-0 lg:hidden lg:absolute lg:bg-sermas-gray-100 lg:py-4 lg:rounded-lg lg:shadow-2xl lg:border"
               >
                 <li className="border-t lg:border-0 lg:hover:bg-sermas-green-200">
-                  <Link className="p-4 block" onClick={ () => onHandleDrawerToggle()} to="/servicio/fisioterapia" activeClassName="active-menu">
+                  <Link
+                    className="p-4 block"
+                    onClick={() => onHandleDrawerToggle()}
+                    to="/servicio/fisioterapia"
+                    activeClassName="active-menu"
+                  >
                     Fisioterapia
                   </Link>
                 </li>
                 <li className="border-t lg:border-0 lg:hover:bg-sermas-green-200">
-                  <Link className="p-4 block" onClick={() => onHandleDrawerToggle()} to="/servicio/neurofeedback" activeClassName="active-menu">
+                  <Link
+                    className="p-4 block"
+                    onClick={() => onHandleDrawerToggle()}
+                    to="/servicio/neurofeedback"
+                    activeClassName="active-menu"
+                  >
                     Neurofeedback
                   </Link>
                 </li>
                 <li className="border-t lg:border-0 lg:hover:bg-sermas-green-200">
-                  <Link className="p-4 block" onClick={() => onHandleDrawerToggle()} to="/servicio/constelaciones-vinculares" activeClassName="active-menu">
+                  <Link
+                    className="p-4 block"
+                    onClick={() => onHandleDrawerToggle()}
+                    to="/servicio/constelaciones-vinculares"
+                    activeClassName="active-menu"
+                  >
                     Constelaciones vinculares
                   </Link>
                 </li>
               </ul>
             </li>
             <li className="sm:p-4 border-t border-b lg:border-0 button-nav">
-              <Link className="p-4 sm:p-0 font-bold block" onClick={() => onHandleDrawerToggle()} to="/nosotros" activeClassName="active-menu">
+              <Link
+                className="p-4 sm:p-0 font-bold block"
+                onClick={() => onHandleDrawerToggle()}
+                to="/nosotros"
+                activeClassName="active-menu"
+              >
                 Nosotros
               </Link>
             </li>
             <li className="sm:p-4 border-b lg:border-0 button-nav">
-              <Link className="p-4 sm:p-0 font-bold block" onClick={() => onHandleDrawerToggle()} to="/contacto" activeClassName="active-menu">
+              <Link
+                className="p-4 sm:p-0 font-bold block"
+                onClick={() => onHandleDrawerToggle()}
+                to="/contacto"
+                activeClassName="active-menu"
+              >
                 Contacto
               </Link>
             </li>

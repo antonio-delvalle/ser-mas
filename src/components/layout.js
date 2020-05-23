@@ -17,7 +17,8 @@ import {
   faMapMarkedAlt,
   faPhone,
   faExternalLinkAlt,
-  faStar
+  faStar,
+  faTimes
 } from "@fortawesome/free-solid-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import Navbar from "./nav-bar";
@@ -35,7 +36,8 @@ library.add(
   faMapMarkedAlt,
   faPhone,
   faExternalLinkAlt,
-  faStar
+  faStar,
+  faTimes
 );
 
 const TemplateWrapper = ({ children }) => {
