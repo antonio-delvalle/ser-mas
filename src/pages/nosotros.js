@@ -123,21 +123,6 @@ export const query = graphql`
           html
         }
       }
-      valoresTextLeftNode {
-        childMarkdownRemark {
-          html
-        }
-      }
-      valoresTextLeftNode {
-        childMarkdownRemark {
-          html
-        }
-      }
-      valoresTextRightNode {
-        childMarkdownRemark {
-          html
-        }
-      }
     }
     datoCmsNewsletter {
       newsletterTitle
