@@ -7,7 +7,6 @@ import ServicePresentation from "../components/service-presentation";
 import ServiceCard from "../components/service-card";
 import TestimonialCard from "../components/testimonial-card";
 import Newsletter from "../components/newsletter";
-import { HelmetDatoCms } from "gatsby-source-datocms";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
