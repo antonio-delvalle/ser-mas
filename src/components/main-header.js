@@ -5,7 +5,7 @@ import Img from "gatsby-image";
 const MainHeader = ({ ctaLink, image, title, subtitle, pretitle }) => {
   const displayPretitle = (pretitle) => (
     <h1 className="text-center md:text-left tracking-sermas mb-4">
-      {pretitle}
+      {pretitle.toUpperCase()}
     </h1>
   );
 
